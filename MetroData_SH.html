@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://assets.dtcj.com/visualization/metro/metro_entries.html -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="4.6亿地铁出行大数据背后的社会价值和商业价值。">
+	<title>数据侠•仲志强：上海地铁系统进站流量图 - DT财经</title>
+	<script async="" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/analytics.js.下载"></script>
+	<script src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/hm.js.下载"></script>
+	<script type="text/javascript" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/d3.min.js.下载"></script>
+	<script type="text/javascript" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/jquery-1.11.3.min.js.下载"></script>
+	<script type="text/javascript" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/bootstrap.min.js.下载"></script>
+	<script type="text/javascript" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/bootstrap-toggle.min.js.下载"></script>
+	<link rel="stylesheet" href="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/bootstrap-toggle.min.css">
+	<style type="text/css">
+		#clock {
+			font-family: sans-serif;
+			font-size: 1.2em;
+			font-weight: 300;
+			color: gray;
+		}
+
+		/*		body {
+		  background-color: #393939;
+		  font-size: 12px;
+		  font-family: 'Raleway', sans-serif;
+		}*/
+
+		/*		p {
+		  color: white;
+		  margin: 50px;
+		}*/
+
+		a {
+			color: #4FDEF2;
+		}
+
+		.slider_axis {
+			fill: gray;
+			font-size: 11px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		.slider_axis .halo {
+			stroke: gray;
+			stroke-width: 2px;
+			stroke-linecap: round;
+		}
+
+		.slider .handle path {
+			stroke: black;
+			stroke-width: 3px;
+			stroke-linecap: round;
+			pointer-events: none;
+		}
+
+		.slider .handle text {
+			fill: black;
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.legend circle {
+			fill: none;
+			stroke: #ccc;
+		}
+
+		.legend text {
+			fill: #777;
+			font: 10px sans-serif;
+			text-anchor: middle;
+		}
+
+		.entry-value {
+			fill: white;
+			font: 11px sans-serif;
+		}
+
+		.lengend-header {
+			font: 1.3em sans-serif;
+		}
+
+		.data-source {
+			color: #C0C0C0;
+			font: 12px sans-serif;
+		}
+	</style>
+</head>
+
+<body>
+	<img style="margin-top:-500px" src="./数据侠•仲志强：上海地铁系统进站流量图 - DT财经_files/10.cc30de9c0c5cfb22912c58e2dd974e03.jpg">
+	<div>
+		<h2 class="text-center">上海地铁系统进站流量图</h2>
+		<p class="text-center">拖动时间轴查看实时流量</p>
+	</div>
+	<div>
+		<svg id="metro_by_entry" width="1000" height="750">
+			<g transform="translate(20,0)">
+				<line class="route" stroke-width="3" id="富锦路-友谊西路" stroke="#e91b39" stroke-linecap="round" x1="386.7552307692315" y1="46.386418604654985"
+				 x2="391.5213076923008" y2="64.78827906977047"></line>
+				<line class="route" stroke-width="3" id="友谊西路-宝安公路" stroke="#e91b39" stroke-linecap="round" x1="391.5213076923008"
+				 y1="64.78827906977047" x2="395.91176923076847" y2="84.42083720930258"></line>
+				<line class="route" stroke-width="3" id="宝安公路-共富新村" stroke="#e91b39" stroke-linecap="round" x1="395.91176923076847"
+				 y1="84.42083720930258" x2="400.4279230769227" y2="108.47386046511883"></line>
+				<line class="route" stroke-width="3" id="共富新村-呼兰路" stroke="#e91b39" stroke-linecap="round" x1="400.4279230769227"
+				 y1="108.47386046511883" x2="405.82246153846614" y2="134.49432558140012"></line>
+				<line class="route" stroke-width="3" id="呼兰路-通河新村" stroke="#e91b39" stroke-linecap="round" x1="405.82246153846614"
+				 y1="134.49432558140012" x2="411.3426923076961" y2="148.73358139535102"></line>
+				<line class="route" stroke-width="3" id="通河新村-共康路" stroke="#e91b39" stroke-linecap="round" x1="411.3426923076961"
+				 y1="148.73358139535102" x2="419.4966153846152" y2="169.11293023255783"></line>
+				<line class="route" stroke-width="3" id="共康路-彭浦新村" stroke="#e91b39" stroke-linecap="round" x1="419.4966153846152"
+				 y1="169.11293023255783" x2="421.75323076922405" y2="189.98623255813885"></line>
+				<line class="route" stroke-width="3" id="彭浦新村-汶水路" stroke="#e91b39" stroke-linecap="round" x1="421.75323076922405"
+				 y1="189.98623255813885" x2="424.01130769231156" y2="213.31758139535222"></line>
+				<line class="route" stroke-width="3" id="汶水路-上海马戏城" stroke="#e91b39" stroke-linecap="round" x1="424.01130769231156"
+				 y1="213.31758139535222" x2="426.52076923077203" y2="234.68818604651426"></line>
+				<line class="route" stroke-width="3" id="上海马戏城-延长路" stroke="#e91b39" stroke-linecap="round" x1="426.52076923077203"
+				 y1="234.68818604651426" x2="431.66392307692166" y2="248.20074418604906"></line>
+				<line class="route" stroke-width="3" id="延长路-中山北路" stroke="#e91b39" stroke-linecap="round" x1="431.66392307692166"
+				 y1="248.20074418604906" x2="437.3083846153803" y2="269.943069767445"></line>
+				<line class="route" stroke-width="3" id="中山北路-上海火车站" stroke="#e91b39" stroke-linecap="round" x1="437.3083846153803"
+				 y1="269.943069767445" x2="432.2909230769172" y2="289.1101395348815"></line>
+				<line class="route" stroke-width="3" id="上海火车站-汉中路" stroke="#e91b39" stroke-linecap="round" x1="432.2909230769172"
+				 y1="289.1101395348815" x2="436.0543846153894" y2="298.6945116279059"></line>
+				<line class="route" stroke-width="3" id="汉中路-新闸路" stroke="#e91b39" stroke-linecap="round" x1="436.0543846153894"
+				 y1="298.6945116279059" x2="450.3555384615339" y2="304.10120930232625"></line>
+				<line class="route" stroke-width="3" id="新闸路-人民广场" stroke="#e91b39" stroke-linecap="round" x1="450.3555384615339"
+				 y1="304.10120930232625" x2="459.6363076922996" y2="310.44893023255815"></line>
+				<line class="route" stroke-width="3" id="人民广场-黄陂南路" stroke="#e91b39" stroke-linecap="round" x1="459.6363076922996"
+				 y1="310.44893023255815" x2="457.8824615384575" y2="330.3996279069798"></line>
+				<line class="route" stroke-width="3" id="黄陂南路-陕西南路" stroke="#e91b39" stroke-linecap="round" x1="457.8824615384575"
+				 y1="330.3996279069798" x2="438.43815384616335" y2="339.4933953488368"></line>
+				<line class="route" stroke-width="3" id="陕西南路-常熟路" stroke="#e91b39" stroke-linecap="round" x1="438.43815384616335"
+				 y1="339.4933953488368" x2="425.1410769230738" y2="346.13079069767366"></line>
+				<line class="route" stroke-width="3" id="常熟路-衡山路" stroke="#e91b39" stroke-linecap="round" x1="425.1410769230738"
+				 y1="346.13079069767366" x2="418.618230769226" y2="361.1268837209316"></line>
+				<line class="route" stroke-width="3" id="衡山路-徐家汇" stroke="#e91b39" stroke-linecap="round" x1="418.618230769226"
+				 y1="361.1268837209316" x2="403.8289230769346" y2="378.8338604651164"></line>
+				<line class="route" stroke-width="3" id="徐家汇-上海体育馆" stroke="#e91b39" stroke-linecap="round" x1="403.8289230769346"
+				 y1="378.8338604651164" x2="405.4600000000059" y2="397.08334883720664"></line>
+				<line class="route" stroke-width="3" id="上海体育馆-漕宝路" stroke="#e91b39" stroke-linecap="round" x1="405.4600000000059"
+				 y1="397.08334883720664" x2="401.93330769230744" y2="421.863069767439"></line>
+				<line class="route" stroke-width="3" id="漕宝路-上海南站" stroke="#e91b39" stroke-linecap="round" x1="401.93330769230744"
+				 y1="421.863069767439" x2="396.1456153846266" y2="446.641116279071"></line>
+				<line class="route" stroke-width="3" id="上海南站-锦江乐园" stroke="#e91b39" stroke-linecap="round" x1="396.1456153846266"
+				 y1="446.641116279071" x2="371.7013846153842" y2="465.64744186046227"></line>
+				<line class="route" stroke-width="3" id="锦江乐园-莲花路" stroke="#e91b39" stroke-linecap="round" x1="371.7013846153842"
+				 y1="465.64744186046227" x2="355.33069230769235" y2="484.3456744186023"></line>
+				<line class="route" stroke-width="3" id="莲花路-外环路" stroke="#e91b39" stroke-linecap="round" x1="355.33069230769235"
+				 y1="484.3456744186023" x2="340.7796153846118" y2="501.56874418604514"></line>
+				<line class="route" stroke-width="3" id="外环路-莘庄" stroke="#e91b39" stroke-linecap="round" x1="340.7796153846118"
+				 y1="501.56874418604514" x2="329.37815384614953" y2="517.0068837209272"></line>
+				<line class="route" stroke-width="3" id="航中路-紫藤路" stroke="#bca8d1" stroke-linecap="round" x1="285.66061538461736"
+				 y1="426.8628837209273" x2="298.7063076923131" y2="419.3614883720944"></line>
+				<line class="route" stroke-width="3" id="紫藤路-龙柏新村" stroke="#bca8d1" stroke-linecap="round" x1="298.7063076923131"
+				 y1="419.3614883720944" x2="307.864307692308" y2="407.43460465116436"></line>
+				<line class="route" stroke-width="3" id="龙柏新村-龙溪路" stroke="#bca8d1" stroke-linecap="round" x1="307.864307692308"
+				 y1="407.43460465116436" x2="321.6626923076857" y2="377.95813953488187"></line>
+				<line class="route" stroke-width="3" id="虹桥火车站-虹桥2号航站楼" stroke="#bca8d1" stroke-linecap="round" x1="236.09400000000858"
+				 y1="378.5106976744196" x2="242.993923076916" y2="377.9882790697668"></line>
+				<line class="route" stroke-width="3" id="虹桥2号航站楼-虹桥1号航站楼" stroke="#bca8d1" stroke-linecap="round" x1="242.993923076916"
+				 y1="377.9882790697668" x2="273.86892307693336" y2="382.9981395348814"></line>
+				<line class="route" stroke-width="3" id="虹桥1号航站楼-上海动物园" stroke="#bca8d1" stroke-linecap="round" x1="273.86892307693336"
+				 y1="382.9981395348814" x2="304.6021538461655" y2="384.96558139534636"></line>
+				<line class="route" stroke-width="3" id="上海动物园-龙溪路" stroke="#bca8d1" stroke-linecap="round" x1="304.6021538461655"
+				 y1="384.96558139534636" x2="321.6626923076857" y2="377.95813953488187"></line>
+				<line class="route" stroke-width="3" id="龙溪路-水城路" stroke="#bca8d1" stroke-linecap="round" x1="321.6626923076857"
+				 y1="377.95813953488187" x2="339.8530000000098" y2="369.72167441860717"></line>
+				<line class="route" stroke-width="3" id="水城路-伊犁路" stroke="#bca8d1" stroke-linecap="round" x1="339.8530000000098"
+				 y1="369.72167441860717" x2="356.5364615384704" y2="370.4584186046496"></line>
+				<line class="route" stroke-width="3" id="伊犁路-宋园路" stroke="#bca8d1" stroke-linecap="round" x1="356.5364615384704"
+				 y1="370.4584186046496" x2="368.70523076923473" y2="374.88390697674686"></line>
+				<line class="route" stroke-width="3" id="宋园路-虹桥路" stroke="#bca8d1" stroke-linecap="round" x1="368.70523076923473"
+				 y1="374.88390697674686" x2="381.1867692307679" y2="372.49451162790433"></line>
+				<line class="route" stroke-width="3" id="虹桥路-交通大学" stroke="#bca8d1" stroke-linecap="round" x1="381.1867692307679"
+				 y1="372.49451162790433" x2="402.3235384615499" y2="364.6967441860471"></line>
+				<line class="route" stroke-width="3" id="交通大学-上海图书馆" stroke="#bca8d1" stroke-linecap="round" x1="402.3235384615499"
+				 y1="364.6967441860471" x2="415.99769230769897" y2="355.338418604651"></line>
+				<line class="route" stroke-width="3" id="上海图书馆-陕西南路" stroke="#bca8d1" stroke-linecap="round" x1="415.99769230769897"
+				 y1="355.338418604651" x2="438.43815384616335" y2="339.4933953488368"></line>
+				<line class="route" stroke-width="3" id="陕西南路-新天地" stroke="#bca8d1" stroke-linecap="round" x1="438.43815384616335"
+				 y1="339.4933953488368" x2="460.9063846153892" y2="341.2029767441881"></line>
+				<line class="route" stroke-width="3" id="新天地-老西门" stroke="#bca8d1" stroke-linecap="round" x1="460.9063846153892"
+				 y1="341.2029767441881" x2="473.45076923077596" y2="337.1475348837184"></line>
+				<line class="route" stroke-width="3" id="老西门-豫园" stroke="#bca8d1" stroke-linecap="round" x1="473.45076923077596"
+				 y1="337.1475348837184" x2="478.71961538461215" y2="322.39925581395374"></line>
+				<line class="route" stroke-width="3" id="豫园-南京东路" stroke="#bca8d1" stroke-linecap="round" x1="478.71961538461215"
+				 y1="322.39925581395374" x2="474.75300000000055" y2="305.3804651162801"></line>
+				<line class="route" stroke-width="3" id="南京东路-天潼路" stroke="#bca8d1" stroke-linecap="round" x1="474.75300000000055"
+				 y1="305.3804651162801" x2="471.69546153845533" y2="295.11962790697726"></line>
+				<line class="route" stroke-width="3" id="天潼路-四川北路" stroke="#bca8d1" stroke-linecap="round" x1="471.69546153845533"
+				 y1="295.11962790697726" x2="473.95353846154273" y2="281.23534883720845"></line>
+				<line class="route" stroke-width="3" id="四川北路-海伦路" stroke="#bca8d1" stroke-linecap="round" x1="473.95353846154273"
+				 y1="281.23534883720845" x2="481.9189230769217" y2="269.5713488372111"></line>
+				<line class="route" stroke-width="3" id="海伦路-邮电新村" stroke="#bca8d1" stroke-linecap="round" x1="481.9189230769217"
+				 y1="269.5713488372111" x2="488.63030769230977" y2="253.80837209302584"></line>
+				<line class="route" stroke-width="3" id="邮电新村-四平路" stroke="#bca8d1" stroke-linecap="round" x1="488.63030769230977"
+				 y1="253.80837209302584" x2="499.16800000000285" y2="243.06027906976834"></line>
+				<line class="route" stroke-width="3" id="四平路-同济大学" stroke="#bca8d1" stroke-linecap="round" x1="499.16800000000285"
+				 y1="243.06027906976834" x2="506.1614615384618" y2="230.90065116279044"></line>
+				<line class="route" stroke-width="3" id="同济大学-国权路" stroke="#bca8d1" stroke-linecap="round" x1="506.1614615384618"
+				 y1="230.90065116279044" x2="511.5866923077031" y2="218.925209302329"></line>
+				<line class="route" stroke-width="3" id="国权路-五角场" stroke="#bca8d1" stroke-linecap="round" x1="511.5866923077031"
+				 y1="218.925209302329" x2="518.2352307692375" y2="204.22046511628253"></line>
+				<line class="route" stroke-width="3" id="五角场-江湾体育场" stroke="#bca8d1" stroke-linecap="round" x1="518.2352307692375"
+				 y1="204.22046511628253" x2="517.6082307692213" y2="196.23851162790865"></line>
+				<line class="route" stroke-width="3" id="江湾体育场-三门路" stroke="#bca8d1" stroke-linecap="round" x1="517.6082307692213"
+				 y1="196.23851162790865" x2="509.1254615384555" y2="178.78604651163076"></line>
+				<line class="route" stroke-width="3" id="三门路-殷高东路" stroke="#bca8d1" stroke-linecap="round" x1="509.1254615384555"
+				 y1="178.78604651163076" x2="506.88200000000876" y2="164.4513488372118"></line>
+				<line class="route" stroke-width="3" id="殷高东路-新江湾城" stroke="#bca8d1" stroke-linecap="round" x1="506.88200000000876"
+				 y1="164.4513488372118" x2="506.88200000000876" y2="153.15739534883608"></line>
+				<line class="route" stroke-width="3" id="花桥-光明路" stroke="#7e2131" stroke-linecap="round" x1="-81.26592307690883"
+				 y1="203.06846511628208" x2="-62.57430769229663" y2="207.36669767442015"></line>
+				<line class="route" stroke-width="3" id="光明路-兆丰路" stroke="#7e2131" stroke-linecap="round" x1="-62.57430769229663"
+				 y1="207.36669767442015" x2="-14.089230769216503" y2="219.3404651162811"></line>
+				<line class="route" stroke-width="3" id="兆丰路-安亭" stroke="#7e2131" stroke-linecap="round" x1="-14.089230769216503"
+				 y1="219.3404651162811" x2="2.908461538470831" y2="220.1994418604638"></line>
+				<line class="route" stroke-width="3" id="安亭-上海汽车城" stroke="#7e2131" stroke-linecap="round" x1="2.908461538470831"
+				 y1="220.1994418604638" x2="30.379538461539774" y2="225.480558139537"></line>
+				<line class="route" stroke-width="3" id="上海汽车城-昌吉东路" stroke="#7e2131" stroke-linecap="round" x1="30.379538461539774"
+				 y1="225.480558139537" x2="59.04469230770326" y2="211.6649302325581"></line>
+				<line class="route" stroke-width="3" id="昌吉东路-上海赛车场" stroke="#7e2131" stroke-linecap="round" x1="59.04469230770326"
+				 y1="211.6649302325581" x2="96.61500000000999" y2="147.5715348837243"></line>
+				<line class="route" stroke-width="3" id="上海赛车场-嘉定新城" stroke="#7e2131" stroke-linecap="round" x1="96.61500000000999"
+				 y1="147.5715348837243" x2="137.76169230768585" y2="150.70269767442238"></line>
+				<line class="route" stroke-width="3" id="嘉定北-嘉定西" stroke="#7e2131" stroke-linecap="round" x1="113.11138461538836"
+				 y1="47.73934883721188" x2="99.18730769230335" y2="71.78734883720898"></line>
+				<line class="route" stroke-width="3" id="嘉定西-白银路" stroke="#7e2131" stroke-linecap="round" x1="99.18730769230335"
+				 y1="71.78734883720898" x2="124.77738461538588" y2="125.04725581395549"></line>
+				<line class="route" stroke-width="3" id="白银路-嘉定新城" stroke="#7e2131" stroke-linecap="round" x1="124.77738461538588"
+				 y1="125.04725581395549" x2="137.76169230768585" y2="150.70269767442238"></line>
+				<line class="route" stroke-width="3" id="嘉定新城-马陆" stroke="#7e2131" stroke-linecap="round" x1="137.76169230768585"
+				 y1="150.70269767442238" x2="170.81584615385916" y2="168.1350697674417"></line>
+				<line class="route" stroke-width="3" id="马陆-南翔" stroke="#7e2131" stroke-linecap="round" x1="170.81584615385916"
+				 y1="168.1350697674417" x2="238.5566923076933" y2="205.89320930232932"></line>
+				<line class="route" stroke-width="3" id="南翔-桃浦新村" stroke="#7e2131" stroke-linecap="round" x1="238.5566923076933"
+				 y1="205.89320930232932" x2="277.1924615384716" y2="231.6842790697696"></line>
+				<line class="route" stroke-width="3" id="桃浦新村-武威路" stroke="#7e2131" stroke-linecap="round" x1="277.1924615384716"
+				 y1="231.6842790697696" x2="299.0205384615398" y2="239.97432558139474"></line>
+				<line class="route" stroke-width="3" id="武威路-祁连山路" stroke="#7e2131" stroke-linecap="round" x1="299.0205384615398"
+				 y1="239.97432558139474" x2="315.7668461538541" y2="248.51218604651314"></line>
+				<line class="route" stroke-width="3" id="祁连山路-李子园" stroke="#7e2131" stroke-linecap="round" x1="315.7668461538541"
+				 y1="248.51218604651314" x2="336.08953846153753" y2="252.87237209302145"></line>
+				<line class="route" stroke-width="3" id="李子园-上海西站" stroke="#7e2131" stroke-linecap="round" x1="336.08953846153753"
+				 y1="252.87237209302145" x2="352.14600000000274" y2="263.3759999999984"></line>
+				<line class="route" stroke-width="3" id="上海西站-真如" stroke="#7e2131" stroke-linecap="round" x1="352.14600000000274"
+				 y1="263.3759999999984" x2="361.36684615385127" y2="283.5242790697697"></line>
+				<line class="route" stroke-width="3" id="真如-枫桥路" stroke="#7e2131" stroke-linecap="round" x1="361.36684615385127"
+				 y1="283.5242790697697" x2="367.3883846153902" y2="298.4533953488381"></line>
+				<line class="route" stroke-width="3" id="枫桥路-曹杨路" stroke="#7e2131" stroke-linecap="round" x1="367.3883846153902"
+				 y1="298.4533953488381" x2="376.4192307692407" y2="305.02716279069836"></line>
+				<line class="route" stroke-width="3" id="曹杨路-隆德路" stroke="#7e2131" stroke-linecap="round" x1="376.4192307692407"
+				 y1="305.02716279069836" x2="385.38869230769546" y2="317.49990697674673"></line>
+				<line class="route" stroke-width="3" id="隆德路-江苏路" stroke="#7e2131" stroke-linecap="round" x1="385.38869230769546"
+				 y1="317.49990697674673" x2="396.03599999999716" y2="335.6723720930212"></line>
+				<line class="route" stroke-width="3" id="江苏路-交通大学" stroke="#7e2131" stroke-linecap="round" x1="396.03599999999716"
+				 y1="335.6723720930212" x2="402.3235384615499" y2="364.6967441860471"></line>
+				<line class="route" stroke-width="3" id="交通大学-徐家汇" stroke="#7e2131" stroke-linecap="round" x1="402.3235384615499"
+				 y1="364.6967441860471" x2="403.8289230769346" y2="378.8338604651164"></line>
+				<line class="route" stroke-width="3" id="徐家汇-上海游泳馆" stroke="#7e2131" stroke-linecap="round" x1="403.8289230769346"
+				 y1="378.8338604651164" x2="411.230153846151" y2="403.238511627908"></line>
+				<line class="route" stroke-width="3" id="上海游泳馆-龙华" stroke="#7e2131" stroke-linecap="round" x1="411.230153846151"
+				 y1="403.238511627908" x2="428.1664615384633" y2="414.24446511627923"></line>
+				<line class="route" stroke-width="3" id="龙华-云锦路" stroke="#7e2131" stroke-linecap="round" x1="428.1664615384633"
+				 y1="414.24446511627923" x2="436.2575384615496" y2="424.57395348837184"></line>
+				<line class="route" stroke-width="3" id="云锦路-龙耀路" stroke="#7e2131" stroke-linecap="round" x1="436.2575384615496"
+				 y1="424.57395348837184" x2="438.0128461538494" y2="435.82604651162995"></line>
+				<line class="route" stroke-width="3" id="龙耀路-东方体育中心" stroke="#7e2131" stroke-linecap="round" x1="438.0128461538494"
+				 y1="435.82604651162995" x2="468.0576923076904" y2="446.34139534883377"></line>
+				<line class="route" stroke-width="3" id="东方体育中心-三林" stroke="#7e2131" stroke-linecap="round" x1="468.0576923076904"
+				 y1="446.34139534883377" x2="513.9704615384563" y2="463.5611162790698"></line>
+				<line class="route" stroke-width="3" id="三林-三林东" stroke="#7e2131" stroke-linecap="round" x1="513.9704615384563"
+				 y1="463.5611162790698" x2="530.5910769230842" y2="458.08744186046596"></line>
+				<line class="route" stroke-width="3" id="三林东-浦三路" stroke="#7e2131" stroke-linecap="round" x1="530.5910769230842"
+				 y1="458.08744186046596" x2="553.9873846153907" y2="450.6463255813972"></line>
+				<line class="route" stroke-width="3" id="浦三路-御桥" stroke="#7e2131" stroke-linecap="round" x1="553.9873846153907"
+				 y1="450.6463255813972" x2="600.5900000000058" y2="438.5319069767437"></line>
+				<line class="route" stroke-width="3" id="御桥-罗山路" stroke="#7e2131" stroke-linecap="round" x1="600.5900000000058"
+				 y1="438.5319069767437" x2="633.017153846163" y2="446.5255813953503"></line>
+				<line class="route" stroke-width="3" id="曲阜路-天潼路" stroke="#007c65" stroke-linecap="round" x1="455.3247692307635"
+				 y1="297.5927441860491" x2="471.69546153845533" y2="295.11962790697726"></line>
+				<line class="route" stroke-width="3" id="天潼路-国际客运中心" stroke="#007c65" stroke-linecap="round" x1="471.69546153845533"
+				 y1="295.11962790697726" x2="494.27476923076836" y2="284.50716279069906"></line>
+				<line class="route" stroke-width="3" id="国际客运中心-提篮桥" stroke="#007c65" stroke-linecap="round" x1="494.27476923076836"
+				 y1="284.50716279069906" x2="506.88200000000876" y2="278.91627906976817"></line>
+				<line class="route" stroke-width="3" id="提篮桥-大连路" stroke="#007c65" stroke-linecap="round" x1="506.88200000000876"
+				 y1="278.91627906976817" x2="515.97715384615" y2="271.2909767441888"></line>
+				<line class="route" stroke-width="3" id="大连路-江浦公园" stroke="#007c65" stroke-linecap="round" x1="515.97715384615"
+				 y1="271.2909767441888" x2="531.6258461538371" y2="260.39720930232556"></line>
+				<line class="route" stroke-width="3" id="江浦公园-宁国路" stroke="#007c65" stroke-linecap="round" x1="531.6258461538371"
+				 y1="260.39720930232556" x2="544.2023846153795" y2="253.5789767441848"></line>
+				<line class="route" stroke-width="3" id="宁国路-隆昌路" stroke="#007c65" stroke-linecap="round" x1="544.2023846153795"
+				 y1="253.5789767441848" x2="562.32984615385" y2="242.55460465116144"></line>
+				<line class="route" stroke-width="3" id="隆昌路-爱国路" stroke="#007c65" stroke-linecap="round" x1="562.32984615385"
+				 y1="242.55460465116144" x2="573.9008461538382" y2="234.81544186046767"></line>
+				<line class="route" stroke-width="3" id="爱国路-复兴岛" stroke="#007c65" stroke-linecap="round" x1="573.9008461538382"
+				 y1="234.81544186046767" x2="586.4145384615477" y2="233.61823255814284"></line>
+				<line class="route" stroke-width="3" id="复兴岛-东陆路" stroke="#007c65" stroke-linecap="round" x1="586.4145384615477"
+				 y1="233.61823255814284" x2="612.5073846153764" y2="230.17897674418748"></line>
+				<line class="route" stroke-width="3" id="东陆路-巨峰路" stroke="#007c65" stroke-linecap="round" x1="612.5073846153764"
+				 y1="230.17897674418748" x2="626.055846153839" y2="233.21134883721078"></line>
+				<line class="route" stroke-width="3" id="巨峰路-杨高北路" stroke="#007c65" stroke-linecap="round" x1="626.055846153839"
+				 y1="233.21134883721078" x2="647.4439999999939" y2="234.35497674418525"></line>
+				<line class="route" stroke-width="3" id="杨高北路-金京路" stroke="#007c65" stroke-linecap="round" x1="647.4439999999939"
+				 y1="234.35497674418525" x2="665.7892307692238" y2="234.84725581395307"></line>
+				<line class="route" stroke-width="3" id="金京路-申江路" stroke="#007c65" stroke-linecap="round" x1="665.7892307692238"
+				 y1="234.84725581395307" x2="682.3177692307786" y2="234.07869767441935"></line>
+				<line class="route" stroke-width="3" id="申江路-金海路" stroke="#007c65" stroke-linecap="round" x1="682.3177692307786"
+				 y1="234.07869767441935" x2="699.7232307692234" y2="262.57730232557975"></line>
+				<line class="route" stroke-width="3" id="金运路-金沙江西路" stroke="#e895c0" stroke-linecap="round" x1="233.03646153846336"
+				 y1="300.1110697674396" x2="256.1813846153969" y2="299.8046511627887"></line>
+				<line class="route" stroke-width="3" id="金沙江西路-丰庄" stroke="#e895c0" stroke-linecap="round" x1="256.1813846153969"
+				 y1="299.8046511627887" x2="285.22215384616203" y2="297.224372093022"></line>
+				<line class="route" stroke-width="3" id="丰庄-祁连山南路" stroke="#e895c0" stroke-linecap="round" x1="285.22215384616203"
+				 y1="297.224372093022" x2="302.784000000012" y2="305.57972093023017"></line>
+				<line class="route" stroke-width="3" id="祁连山南路-真北路" stroke="#e895c0" stroke-linecap="round" x1="302.784000000012"
+				 y1="305.57972093023017" x2="324.6106153846223" y2="314.61153488372275"></line>
+				<line class="route" stroke-width="3" id="真北路-大渡河路" stroke="#e895c0" stroke-linecap="round" x1="324.6106153846223"
+				 y1="314.61153488372275" x2="342.8637692307792" y2="315.4102325581415"></line>
+				<line class="route" stroke-width="3" id="大渡河路-金沙江路" stroke="#e895c0" stroke-linecap="round" x1="342.8637692307792"
+				 y1="315.4102325581415" x2="368.07823076923927" y2="316.33116279070043"></line>
+				<line class="route" stroke-width="3" id="金沙江路-隆德路" stroke="#e895c0" stroke-linecap="round" x1="368.07823076923927"
+				 y1="316.33116279070043" x2="385.38869230769546" y2="317.49990697674673"></line>
+				<line class="route" stroke-width="3" id="隆德路-武宁路" stroke="#e895c0" stroke-linecap="round" x1="385.38869230769546"
+				 y1="317.49990697674673" x2="395.5507692307661" y2="310.98641860465045"></line>
+				<line class="route" stroke-width="3" id="武宁路-长寿路" stroke="#e895c0" stroke-linecap="round" x1="395.5507692307661"
+				 y1="310.98641860465045" x2="406.7154615384547" y2="301.4556279069765"></line>
+				<line class="route" stroke-width="3" id="龙阳路-华夏中路" stroke="#8dd1bf" stroke-linecap="round" x1="580.7700769230684"
+				 y1="363.35888372092984" x2="618.2775384615422" y2="409.01860465116266"></line>
+				<line class="route" stroke-width="3" id="华夏中路-罗山路" stroke="#8dd1bf" stroke-linecap="round" x1="618.2775384615422"
+				 y1="409.01860465116266" x2="633.017153846163" y2="446.5255813953503"></line>
+				<line class="route" stroke-width="3" id="罗山路-周浦东" stroke="#8dd1bf" stroke-linecap="round" x1="633.017153846163"
+				 y1="446.5255813953503" x2="653.2769999999927" y2="519.0446511627886"></line>
+				<line class="route" stroke-width="3" id="周浦东-鹤沙航城" stroke="#8dd1bf" stroke-linecap="round" x1="653.2769999999927"
+				 y1="519.0446511627886" x2="659.6113076923004" y2="573.009488372092"></line>
+				<line class="route" stroke-width="3" id="鹤沙航城-航头东" stroke="#8dd1bf" stroke-linecap="round" x1="659.6113076923004"
+				 y1="573.009488372092" x2="668.8950000000026" y2="611.4189767441864"></line>
+				<line class="route" stroke-width="3" id="航头东-新场" stroke="#8dd1bf" stroke-linecap="round" x1="668.8950000000026"
+				 y1="611.4189767441864" x2="714.6820769230821" y2="627.1166511627885"></line>
+				<line class="route" stroke-width="3" id="新场-野生动物园" stroke="#8dd1bf" stroke-linecap="round" x1="714.6820769230821"
+				 y1="627.1166511627885" x2="788.3187692307686" y2="619.4210232558128"></line>
+				<line class="route" stroke-width="3" id="野生动物园-惠南" stroke="#8dd1bf" stroke-linecap="round" x1="788.3187692307686"
+				 y1="619.4210232558128" x2="879.3916153846186" y2="613.2658604651174"></line>
+				<line class="route" stroke-width="3" id="惠南-惠南东" stroke="#8dd1bf" stroke-linecap="round" x1="879.3916153846186"
+				 y1="613.2658604651174" x2="926.4326923076891" y2="659.1951627906967"></line>
+				<line class="route" stroke-width="3" id="惠南东-书院" stroke="#8dd1bf" stroke-linecap="round" x1="926.4326923076891"
+				 y1="659.1951627906967" x2="1009.1630769230798" y2="771.7981395348825"></line>
+				<line class="route" stroke-width="3" id="书院-临港大道" stroke="#8dd1bf" stroke-linecap="round" x1="1009.1630769230798"
+				 y1="771.7981395348825" x2="1097.4765384615332" y2="831.5213023255757"></line>
+				<line class="route" stroke-width="3" id="临港大道-滴水湖" stroke="#8dd1bf" stroke-linecap="round" x1="1097.4765384615332"
+				 y1="831.5213023255757" x2="1124.8233846153735" y2="858.7691162790667"></line>
+				<line class="route" stroke-width="3" id="徐泾东-虹桥火车站" stroke="#8ac53f" stroke-linecap="round" x1="203.72969230770514"
+				 y1="387.8857674418616" x2="236.09400000000858" y2="378.5106976744196"></line>
+				<line class="route" stroke-width="3" id="虹桥火车站-虹桥2号航站楼" stroke="#8ac53f" stroke-linecap="round" x1="236.09400000000858"
+				 y1="378.5106976744196" x2="242.993923076916" y2="377.9882790697668"></line>
+				<line class="route" stroke-width="3" id="虹桥2号航站楼-淞虹路" stroke="#8ac53f" stroke-linecap="round" x1="242.993923076916"
+				 y1="377.9882790697668" x2="291.69823076923416" y2="337.88595348837305"></line>
+				<line class="route" stroke-width="3" id="淞虹路-北新泾" stroke="#8ac53f" stroke-linecap="round" x1="291.69823076923416"
+				 y1="337.88595348837305" x2="312.52076923076874" y2="340.4662325581398"></line>
+				<line class="route" stroke-width="3" id="北新泾-威宁路" stroke="#8ac53f" stroke-linecap="round" x1="312.52076923076874"
+				 y1="340.4662325581398" x2="332.12146153846805" y2="343.47683720930394"></line>
+				<line class="route" stroke-width="3" id="威宁路-娄山关路" stroke="#8ac53f" stroke-linecap="round" x1="332.12146153846805"
+				 y1="343.47683720930394" x2="356.7089230769327" y2="349.71572093023474"></line>
+				<line class="route" stroke-width="3" id="娄山关路-中山公园" stroke="#8ac53f" stroke-linecap="round" x1="356.7089230769327"
+				 y1="349.71572093023474" x2="373.70661538462" y2="338.1304186046535"></line>
+				<line class="route" stroke-width="3" id="中山公园-江苏路" stroke="#8ac53f" stroke-linecap="round" x1="373.70661538462"
+				 y1="338.1304186046535" x2="396.03599999999716" y2="335.6723720930212"></line>
+				<line class="route" stroke-width="3" id="江苏路-静安寺" stroke="#8ac53f" stroke-linecap="round" x1="396.03599999999716"
+				 y1="335.6723720930212" x2="420.84269230769985" y2="327.9599999999997"></line>
+				<line class="route" stroke-width="3" id="静安寺-南京西路" stroke="#8ac53f" stroke-linecap="round" x1="420.84269230769985"
+				 y1="327.9599999999997" x2="438.3738461538519" y2="318.34381395348987"></line>
+				<line class="route" stroke-width="3" id="南京西路-人民广场" stroke="#8ac53f" stroke-linecap="round" x1="438.3738461538519"
+				 y1="318.34381395348987" x2="459.6363076922996" y2="310.44893023255815"></line>
+				<line class="route" stroke-width="3" id="人民广场-南京东路" stroke="#8ac53f" stroke-linecap="round" x1="459.6363076922996"
+				 y1="310.44893023255815" x2="474.75300000000055" y2="305.3804651162801"></line>
+				<line class="route" stroke-width="3" id="南京东路-陆家嘴" stroke="#8ac53f" stroke-linecap="round" x1="474.75300000000055"
+				 y1="305.3804651162801" x2="500.21884615385443" y2="304.3356279069745"></line>
+				<line class="route" stroke-width="3" id="陆家嘴-东昌路" stroke="#8ac53f" stroke-linecap="round" x1="500.21884615385443"
+				 y1="304.3356279069745" x2="519.6470769230707" y2="312.6457674418582"></line>
+				<line class="route" stroke-width="3" id="东昌路-世纪大道" stroke="#8ac53f" stroke-linecap="round" x1="519.6470769230707"
+				 y1="312.6457674418582" x2="536.7076153846117" y2="320.32632558139437"></line>
+				<line class="route" stroke-width="3" id="世纪大道-上海科技馆" stroke="#8ac53f" stroke-linecap="round" x1="536.7076153846117"
+				 y1="320.32632558139437" x2="561.6867692307766" y2="336.94827906976826"></line>
+				<line class="route" stroke-width="3" id="上海科技馆-世纪公园" stroke="#8ac53f" stroke-linecap="round" x1="561.6867692307766"
+				 y1="336.94827906976826" x2="571.3139230769248" y2="352.5890232558132"></line>
+				<line class="route" stroke-width="3" id="世纪公园-龙阳路" stroke="#8ac53f" stroke-linecap="round" x1="571.3139230769248"
+				 y1="352.5890232558132" x2="580.7700769230684" y2="363.35888372092984"></line>
+				<line class="route" stroke-width="3" id="龙阳路-张江高科" stroke="#8ac53f" stroke-linecap="round" x1="580.7700769230684"
+				 y1="363.35888372092984" x2="625.0678461538411" y2="365.2961860465097"></line>
+				<line class="route" stroke-width="3" id="张江高科-金科路" stroke="#8ac53f" stroke-linecap="round" x1="625.0678461538411"
+				 y1="365.2961860465097" x2="645.9693076923071" y2="361.33116279069486"></line>
+				<line class="route" stroke-width="3" id="金科路-广兰路" stroke="#8ac53f" stroke-linecap="round" x1="645.9693076923071"
+				 y1="361.33116279069486" x2="673.8496153846121" y2="349.8530232558145"></line>
+				<line class="route" stroke-width="3" id="广兰路-唐镇" stroke="#8ac53f" stroke-linecap="round" x1="673.8496153846121"
+				 y1="349.8530232558145" x2="725.737153846162" y2="346.0286511627921"></line>
+				<line class="route" stroke-width="3" id="唐镇-创新中路" stroke="#8ac53f" stroke-linecap="round" x1="725.737153846162"
+				 y1="346.0286511627921" x2="750.8566153846127" y2="345.10604651162674"></line>
+				<line class="route" stroke-width="3" id="创新中路-华夏东路" stroke="#8ac53f" stroke-linecap="round" x1="750.8566153846127"
+				 y1="345.10604651162674" x2="761.5828461538459" y2="374.14716279069853"></line>
+				<line class="route" stroke-width="3" id="华夏东路-川沙" stroke="#8ac53f" stroke-linecap="round" x1="761.5828461538459"
+				 y1="374.14716279069853" x2="786.6087692307659" y2="390.55981395349"></line>
+				<line class="route" stroke-width="3" id="川沙-凌空路" stroke="#8ac53f" stroke-linecap="round" x1="786.6087692307659"
+				 y1="390.55981395349" x2="823.9919999999903" y2="380.35423255813805"></line>
+				<line class="route" stroke-width="3" id="凌空路-远东大道" stroke="#8ac53f" stroke-linecap="round" x1="823.9919999999903"
+				 y1="380.35423255813805" x2="870.0611538461615" y2="369.44372093023486"></line>
+				<line class="route" stroke-width="3" id="远东大道-海天三路" stroke="#8ac53f" stroke-linecap="round" x1="870.0611538461615"
+				 y1="369.44372093023486" x2="930.7763846153808" y2="421.14474418604885"></line>
+				<line class="route" stroke-width="3" id="海天三路-浦东国际机场" stroke="#8ac53f" stroke-linecap="round" x1="930.7763846153808"
+				 y1="421.14474418604885" x2="944.5119230769258" y2="451.1536744186045"></line>
+				<line class="route" stroke-width="3" id="江杨北路-铁力路" stroke="#fad107" stroke-linecap="round" x1="408.91069230768846"
+				 y1="20.767813953492606" x2="440.0838461538546" y2="20.215255813954798"></line>
+				<line class="route" stroke-width="3" id="铁力路-友谊路" stroke="#fad107" stroke-linecap="round" x1="440.0838461538546"
+				 y1="20.215255813954798" x2="461.65907692307115" y2="26.839255813958623"></line>
+				<line class="route" stroke-width="3" id="友谊路-宝杨路" stroke="#fad107" stroke-linecap="round" x1="461.65907692307115"
+				 y1="26.839255813958623" x2="467.17930769230117" y2="41.43683720930436"></line>
+				<line class="route" stroke-width="3" id="宝杨路-水产路" stroke="#fad107" stroke-linecap="round" x1="467.17930769230117"
+				 y1="41.43683720930436" x2="479.66084615385506" y2="64.99255813953967"></line>
+				<line class="route" stroke-width="3" id="水产路-淞滨路" stroke="#fad107" stroke-linecap="round" x1="479.66084615385506"
+				 y1="64.99255813953967" x2="486.3722307692223" y2="82.41655813953902"></line>
+				<line class="route" stroke-width="3" id="淞滨路-张华浜" stroke="#fad107" stroke-linecap="round" x1="486.3722307692223"
+				 y1="82.41655813953902" x2="495.090307692304" y2="104.19739534883995"></line>
+				<line class="route" stroke-width="3" id="张华浜-淞发路" stroke="#fad107" stroke-linecap="round" x1="495.090307692304"
+				 y1="104.19739534883995" x2="497.53692307693166" y2="125.61488372093274"></line>
+				<line class="route" stroke-width="3" id="淞发路-长江南路" stroke="#fad107" stroke-linecap="round" x1="497.53692307693166"
+				 y1="125.61488372093274" x2="484.42838461538224" y2="147.46437209302354"></line>
+				<line class="route" stroke-width="3" id="长江南路-殷高西路" stroke="#fad107" stroke-linecap="round" x1="484.42838461538224"
+				 y1="147.46437209302354" x2="474.76907692307844" y2="167.65953488371977"></line>
+				<line class="route" stroke-width="3" id="殷高西路-江湾镇" stroke="#fad107" stroke-linecap="round" x1="474.76907692307844"
+				 y1="167.65953488371977" x2="475.14469230770084" y2="191.69413953488385"></line>
+				<line class="route" stroke-width="3" id="江湾镇-大柏树" stroke="#fad107" stroke-linecap="round" x1="475.14469230770084"
+				 y1="191.69413953488385" x2="472.4160000000023" y2="218.64893023255718"></line>
+				<line class="route" stroke-width="3" id="大柏树-赤峰路" stroke="#fad107" stroke-linecap="round" x1="472.4160000000023"
+				 y1="218.64893023255718" x2="471.2409230769221" y2="232.3289302325567"></line>
+				<line class="route" stroke-width="3" id="赤峰路-虹口足球场" stroke="#fad107" stroke-linecap="round" x1="471.2409230769221"
+				 y1="232.3289302325567" x2="466.55961538461565" y2="248.90232558139337"></line>
+				<line class="route" stroke-width="3" id="虹口足球场-东宝兴路" stroke="#fad107" stroke-linecap="round" x1="466.55961538461565"
+				 y1="248.90232558139337" x2="467.99484615383676" y2="268.10455813953394"></line>
+				<line class="route" stroke-width="3" id="东宝兴路-宝山路" stroke="#fad107" stroke-linecap="round" x1="467.99484615383676"
+				 y1="268.10455813953394" x2="462.161846153838" y2="282.0424186046531"></line>
+				<line class="route" stroke-width="3" id="宝山路-上海火车站" stroke="#fad107" stroke-linecap="round" x1="462.161846153838"
+				 y1="282.0424186046531" x2="432.2909230769172" y2="289.1101395348815"></line>
+				<line class="route" stroke-width="3" id="上海火车站-中潭路" stroke="#fad107" stroke-linecap="round" x1="432.2909230769172"
+				 y1="289.1101395348815" x2="410.728846153842" y2="277.004093023254"></line>
+				<line class="route" stroke-width="3" id="中潭路-镇坪路" stroke="#fad107" stroke-linecap="round" x1="410.728846153842"
+				 y1="277.004093023254" x2="397.05615384615083" y2="290.27386046511464"></line>
+				<line class="route" stroke-width="3" id="镇坪路-曹杨路" stroke="#fad107" stroke-linecap="round" x1="397.05615384615083"
+				 y1="290.27386046511464" x2="376.4192307692407" y2="305.02716279069836"></line>
+				<line class="route" stroke-width="3" id="曹杨路-金沙江路" stroke="#fad107" stroke-linecap="round" x1="376.4192307692407"
+				 y1="305.02716279069836" x2="368.07823076923927" y2="316.33116279070043"></line>
+				<line class="route" stroke-width="3" id="金沙江路-中山公园" stroke="#fad107" stroke-linecap="round" x1="368.07823076923927"
+				 y1="316.33116279070043" x2="373.70661538462" y2="338.1304186046535"></line>
+				<line class="route" stroke-width="3" id="中山公园-延安西路" stroke="#fad107" stroke-linecap="round" x1="373.70661538462"
+				 y1="338.1304186046535" x2="375.6986923076937" y2="352.21227906976605"></line>
+				<line class="route" stroke-width="3" id="延安西路-虹桥路" stroke="#fad107" stroke-linecap="round" x1="375.6986923076937"
+				 y1="352.21227906976605" x2="381.1867692307679" y2="372.49451162790433"></line>
+				<line class="route" stroke-width="3" id="虹桥路-宜山路" stroke="#fad107" stroke-linecap="round" x1="381.1867692307679"
+				 y1="372.49451162790433" x2="390.5318461538451" y2="390.69041860465023"></line>
+				<line class="route" stroke-width="3" id="宜山路-漕溪路" stroke="#fad107" stroke-linecap="round" x1="390.5318461538451"
+				 y1="390.69041860465023" x2="406.87184615383904" y2="407.381023255814"></line>
+				<line class="route" stroke-width="3" id="漕溪路-龙漕路" stroke="#fad107" stroke-linecap="round" x1="406.87184615383904"
+				 y1="407.381023255814" x2="415.6834615384723" y2="419.52390697674605"></line>
+				<line class="route" stroke-width="3" id="龙漕路-石龙路" stroke="#fad107" stroke-linecap="round" x1="415.6834615384723"
+				 y1="419.52390697674605" x2="413.86530769231877" y2="438.89190697674496"></line>
+				<line class="route" stroke-width="3" id="石龙路-上海南站" stroke="#fad107" stroke-linecap="round" x1="413.86530769231877"
+				 y1="438.89190697674496" x2="396.1456153846266" y2="446.641116279071"></line>
+				<line class="route" stroke-width="3" id="上海体育馆-宜山路" stroke="#502e8d" stroke-linecap="round" x1="405.4600000000059"
+				 y1="397.08334883720664" x2="390.5318461538451" y2="390.69041860465023"></line>
+				<line class="route" stroke-width="3" id="宜山路-虹桥路" stroke="#502e8d" stroke-linecap="round" x1="390.5318461538451"
+				 y1="390.69041860465023" x2="381.1867692307679" y2="372.49451162790433"></line>
+				<line class="route" stroke-width="3" id="虹桥路-延安西路" stroke="#502e8d" stroke-linecap="round" x1="381.1867692307679"
+				 y1="372.49451162790433" x2="375.6986923076937" y2="352.21227906976605"></line>
+				<line class="route" stroke-width="3" id="延安西路-中山公园" stroke="#502e8d" stroke-linecap="round" x1="375.6986923076937"
+				 y1="352.21227906976605" x2="373.70661538462" y2="338.1304186046535"></line>
+				<line class="route" stroke-width="3" id="中山公园-金沙江路" stroke="#502e8d" stroke-linecap="round" x1="373.70661538462"
+				 y1="338.1304186046535" x2="368.07823076923927" y2="316.33116279070043"></line>
+				<line class="route" stroke-width="3" id="金沙江路-曹杨路" stroke="#502e8d" stroke-linecap="round" x1="368.07823076923927"
+				 y1="316.33116279070043" x2="376.4192307692407" y2="305.02716279069836"></line>
+				<line class="route" stroke-width="3" id="曹杨路-镇坪路" stroke="#502e8d" stroke-linecap="round" x1="376.4192307692407"
+				 y1="305.02716279069836" x2="397.05615384615083" y2="290.27386046511464"></line>
+				<line class="route" stroke-width="3" id="镇坪路-中潭路" stroke="#502e8d" stroke-linecap="round" x1="397.05615384615083"
+				 y1="290.27386046511464" x2="410.728846153842" y2="277.004093023254"></line>
+				<line class="route" stroke-width="3" id="中潭路-上海火车站" stroke="#502e8d" stroke-linecap="round" x1="410.728846153842"
+				 y1="277.004093023254" x2="432.2909230769172" y2="289.1101395348815"></line>
+				<line class="route" stroke-width="3" id="上海火车站-宝山路" stroke="#502e8d" stroke-linecap="round" x1="432.2909230769172"
+				 y1="289.1101395348815" x2="462.161846153838" y2="282.0424186046531"></line>
+				<line class="route" stroke-width="3" id="宝山路-海伦路" stroke="#502e8d" stroke-linecap="round" x1="462.161846153838"
+				 y1="282.0424186046531" x2="481.9189230769217" y2="269.5713488372111"></line>
+				<line class="route" stroke-width="3" id="海伦路-临平路" stroke="#502e8d" stroke-linecap="round" x1="481.9189230769217"
+				 y1="269.5713488372111" x2="497.9125384615333" y2="266.37823255814266"></line>
+				<line class="route" stroke-width="3" id="临平路-大连路" stroke="#502e8d" stroke-linecap="round" x1="497.9125384615333"
+				 y1="266.37823255814266" x2="515.97715384615" y2="271.2909767441888"></line>
+				<line class="route" stroke-width="3" id="大连路-杨树浦路" stroke="#502e8d" stroke-linecap="round" x1="515.97715384615"
+				 y1="271.2909767441888" x2="521.998692307689" y2="281.42790697674496"></line>
+				<line class="route" stroke-width="3" id="杨树浦路-浦东大道" stroke="#502e8d" stroke-linecap="round" x1="521.998692307689"
+				 y1="281.42790697674496" x2="525.1979999999985" y2="301.3317209302358"></line>
+				<line class="route" stroke-width="3" id="浦东大道-世纪大道" stroke="#502e8d" stroke-linecap="round" x1="525.1979999999985"
+				 y1="301.3317209302358" x2="536.7076153846117" y2="320.32632558139437"></line>
+				<line class="route" stroke-width="3" id="世纪大道-浦电路" stroke="#502e8d" stroke-linecap="round" x1="536.7076153846117"
+				 y1="320.32632558139437" x2="539.4348461538524" y2="334.6359069767475"></line>
+				<line class="route" stroke-width="3" id="浦电路-蓝村路" stroke="#502e8d" stroke-linecap="round" x1="539.4348461538524"
+				 y1="334.6359069767475" x2="537.4909999999916" y2="348.89358139535057"></line>
+				<line class="route" stroke-width="3" id="蓝村路-塘桥" stroke="#502e8d" stroke-linecap="round" x1="537.4909999999916"
+				 y1="348.89358139535057" x2="524.1310769230691" y2="351.96613953488514"></line>
+				<line class="route" stroke-width="3" id="塘桥-南浦大桥" stroke="#502e8d" stroke-linecap="round" x1="524.1310769230691"
+				 y1="351.96613953488514" x2="496.5328461538559" y2="354.240000000001"></line>
+				<line class="route" stroke-width="3" id="南浦大桥-西藏南路" stroke="#502e8d" stroke-linecap="round" x1="496.5328461538559"
+				 y1="354.240000000001" x2="481.6046923076951" y2="365.180651162789"></line>
+				<line class="route" stroke-width="3" id="西藏南路-鲁班路" stroke="#502e8d" stroke-linecap="round" x1="481.6046923076951"
+				 y1="365.180651162789" x2="460.65646153845324" y2="369.7283720930207"></line>
+				<line class="route" stroke-width="3" id="鲁班路-大木桥路" stroke="#502e8d" stroke-linecap="round" x1="460.65646153845324"
+				 y1="369.7283720930207" x2="443.1559999999991" y2="378.334883720929"></line>
+				<line class="route" stroke-width="3" id="大木桥路-东安路" stroke="#502e8d" stroke-linecap="round" x1="443.1559999999991"
+				 y1="378.334883720929" x2="431.0515384615463" y2="383.68130232557945"></line>
+				<line class="route" stroke-width="3" id="东安路-上海体育场" stroke="#502e8d" stroke-linecap="round" x1="431.0515384615463"
+				 y1="383.68130232557945" x2="414.366615384607" y2="392.5339534883746"></line>
+				<line class="route" stroke-width="3" id="上海体育场-上海体育馆" stroke="#502e8d" stroke-linecap="round" x1="414.366615384607"
+				 y1="392.5339534883746" x2="405.4600000000059" y2="397.08334883720664"></line>
+				<line class="route" stroke-width="3" id="莘庄-春申路" stroke="#9056a3" stroke-linecap="round" x1="329.37815384614953"
+				 y1="517.0068837209272" x2="330.1936923076851" y2="538.9719069767448"></line>
+				<line class="route" stroke-width="3" id="春申路-银都路" stroke="#9056a3" stroke-linecap="round" x1="330.1936923076851"
+				 y1="538.9719069767448" x2="336.6536923077001" y2="553.6180465116277"></line>
+				<line class="route" stroke-width="3" id="银都路-颛桥" stroke="#9056a3" stroke-linecap="round" x1="336.6536923077001"
+				 y1="553.6180465116277" x2="353.46284615384735" y2="591.0982325581372"></line>
+				<line class="route" stroke-width="3" id="颛桥-北桥" stroke="#9056a3" stroke-linecap="round" x1="353.46284615384735"
+				 y1="591.0982325581372" x2="365.5687692307788" y2="627.7244651162771"></line>
+				<line class="route" stroke-width="3" id="北桥-剑川路" stroke="#9056a3" stroke-linecap="round" x1="365.5687692307788"
+				 y1="627.7244651162771" x2="374.97669230768884" y2="658.9406511627898"></line>
+				<line class="route" stroke-width="3" id="剑川路-东川路" stroke="#9056a3" stroke-linecap="round" x1="374.97669230768884"
+				 y1="658.9406511627898" x2="379.80707692306964" y2="672.8584186046504"></line>
+				<line class="route" stroke-width="3" id="东川路-金平路" stroke="#9056a3" stroke-linecap="round" x1="379.80707692306964"
+				 y1="672.8584186046504" x2="365.50592307692517" y2="684.4370232558119"></line>
+				<line class="route" stroke-width="3" id="金平路-华宁路" stroke="#9056a3" stroke-linecap="round" x1="365.50592307692517"
+				 y1="684.4370232558119" x2="343.8035384615435" y2="690.8416744186011"></line>
+				<line class="route" stroke-width="3" id="华宁路-文井路" stroke="#9056a3" stroke-linecap="round" x1="343.8035384615435"
+				 y1="690.8416744186011" x2="322.7924615384688" y2="697.2479999999966"></line>
+				<line class="route" stroke-width="3" id="文井路-闵行开发区" stroke="#9056a3" stroke-linecap="round" x1="322.7924615384688"
+				 y1="697.2479999999966" x2="306.42176923077693" y2="702.2980465116284"></line>
+				<line class="route" stroke-width="3" id="东方体育中心-灵岩南路" stroke="#d61870" stroke-linecap="round" x1="468.0576923076904"
+				 y1="446.34139534883377" x2="489.9471538461543" y2="454.3886511627907"></line>
+				<line class="route" stroke-width="3" id="灵岩南路-上南路" stroke="#d61870" stroke-linecap="round" x1="489.9471538461543"
+				 y1="454.3886511627907" x2="506.0664615384525" y2="453.7121860465122"></line>
+				<line class="route" stroke-width="3" id="上南路-华夏西路" stroke="#d61870" stroke-linecap="round" x1="506.0664615384525"
+				 y1="453.7121860465122" x2="518.0466923076973" y2="452.3592558139553"></line>
+				<line class="route" stroke-width="3" id="华夏西路-高青路" stroke="#d61870" stroke-linecap="round" x1="518.0466923076973"
+				 y1="452.3592558139553" x2="520.1162307692239" y2="435.57153488372313"></line>
+				<line class="route" stroke-width="3" id="高青路-东明路" stroke="#d61870" stroke-linecap="round" x1="520.1162307692239"
+				 y1="435.57153488372313" x2="512.9035384615478" y2="414.23609302325326"></line>
+				<line class="route" stroke-width="3" id="东明路-高科西路" stroke="#d61870" stroke-linecap="round" x1="512.9035384615478"
+				 y1="414.23609302325326" x2="511.3353076923094" y2="392.1655813953474"></line>
+				<line class="route" stroke-width="3" id="高科西路-临沂新村" stroke="#d61870" stroke-linecap="round" x1="511.3353076923094"
+				 y1="392.1655813953474" x2="521.3716923076935" y2="379.6861395348855"></line>
+				<line class="route" stroke-width="3" id="临沂新村-上海儿童医学中心" stroke="#d61870" stroke-linecap="round" x1="521.3716923076935"
+				 y1="379.6861395348855" x2="531.2195384615375" y2="362.9670697674431"></line>
+				<line class="route" stroke-width="3" id="上海儿童医学中心-蓝村路" stroke="#d61870" stroke-linecap="round" x1="531.2195384615375"
+				 y1="362.9670697674431" x2="537.4909999999916" y2="348.89358139535057"></line>
+				<line class="route" stroke-width="3" id="蓝村路-浦电路" stroke="#d61870" stroke-linecap="round" x1="537.4909999999916"
+				 y1="348.89358139535057" x2="539.4348461538524" y2="334.6359069767475"></line>
+				<line class="route" stroke-width="3" id="浦电路-世纪大道" stroke="#d61870" stroke-linecap="round" x1="539.4348461538524"
+				 y1="334.6359069767475" x2="536.7076153846117" y2="320.32632558139437"></line>
+				<line class="route" stroke-width="3" id="世纪大道-源深体育中心" stroke="#d61870" stroke-linecap="round" x1="536.7076153846117"
+				 y1="320.32632558139437" x2="547.5273846153757" y2="313.18995348837007"></line>
+				<line class="route" stroke-width="3" id="源深体育中心-民生路" stroke="#d61870" stroke-linecap="round" x1="547.5273846153757"
+				 y1="313.18995348837007" x2="560.5730769230714" y2="308.3374883720939"></line>
+				<line class="route" stroke-width="3" id="民生路-北洋泾路" stroke="#d61870" stroke-linecap="round" x1="560.5730769230714"
+				 y1="308.3374883720939" x2="573.4316923076849" y2="302.8688372093032"></line>
+				<line class="route" stroke-width="3" id="北洋泾路-德平路" stroke="#d61870" stroke-linecap="round" x1="573.4316923076849"
+				 y1="302.8688372093032" x2="590.8049999999947" y2="292.36186046511943"></line>
+				<line class="route" stroke-width="3" id="德平路-云山路" stroke="#d61870" stroke-linecap="round" x1="590.8049999999947"
+				 y1="292.36186046511943" x2="603.2236923076949" y2="284.0081860465117"></line>
+				<line class="route" stroke-width="3" id="云山路-金桥路" stroke="#d61870" stroke-linecap="round" x1="603.2236923076949"
+				 y1="284.0081860465117" x2="616.5207692307637" y2="272.8883720930262"></line>
+				<line class="route" stroke-width="3" id="金桥路-博兴路" stroke="#d61870" stroke-linecap="round" x1="616.5207692307637"
+				 y1="272.8883720930262" x2="623.6092307692321" y2="262.016372093022"></line>
+				<line class="route" stroke-width="3" id="博兴路-五莲路" stroke="#d61870" stroke-linecap="round" x1="623.6092307692321"
+				 y1="262.016372093022" x2="625.3031538461569" y2="247.82902325581512"></line>
+				<line class="route" stroke-width="3" id="五莲路-巨峰路" stroke="#d61870" stroke-linecap="round" x1="625.3031538461569"
+				 y1="247.82902325581512" x2="626.055846153839" y2="233.21134883721078"></line>
+				<line class="route" stroke-width="3" id="巨峰路-东靖路" stroke="#d61870" stroke-linecap="round" x1="626.055846153839"
+				 y1="233.21134883721078" x2="626.5571538461479" y2="216.447069767444"></line>
+				<line class="route" stroke-width="3" id="东靖路-五洲大道" stroke="#d61870" stroke-linecap="round" x1="626.5571538461479"
+				 y1="216.447069767444" x2="627.246999999997" y2="196.61358139534943"></line>
+				<line class="route" stroke-width="3" id="五洲大道-洲海路" stroke="#d61870" stroke-linecap="round" x1="627.246999999997"
+				 y1="196.61358139534943" x2="627.6226153846194" y2="180.52744186046743"></line>
+				<line class="route" stroke-width="3" id="洲海路-外高桥保税区南站" stroke="#d61870" stroke-linecap="round" x1="627.6226153846194"
+				 y1="180.52744186046743" x2="645.9386153846092" y2="164.7510697674431"></line>
+				<line class="route" stroke-width="3" id="外高桥保税区南站-航津路" stroke="#d61870" stroke-linecap="round" x1="645.9386153846092"
+				 y1="164.7510697674431" x2="634.2097692307788" y2="141.7328372093061"></line>
+				<line class="route" stroke-width="3" id="航津路-外高桥保税区北站" stroke="#d61870" stroke-linecap="round" x1="634.2097692307788"
+				 y1="141.7328372093061" x2="623.9220000000008" y2="120.9884651162789"></line>
+				<line class="route" stroke-width="3" id="外高桥保税区北站-港城路" stroke="#d61870" stroke-linecap="round" x1="623.9220000000008"
+				 y1="120.9884651162789" x2="606.1716153846108" y2="112.27479069767585"></line>
+				<line class="route" stroke-width="3" id="美兰湖-罗南新村" stroke="#f37121" stroke-linecap="round" x1="277.38100000001174"
+				 y1="30.37395348837603" x2="288.7970769230733" y2="52.21004651162774"></line>
+				<line class="route" stroke-width="3" id="罗南新村-潘广路" stroke="#f37121" stroke-linecap="round" x1="288.7970769230733"
+				 y1="52.21004651162774" x2="286.2876153846128" y2="93.55981395348994"></line>
+				<line class="route" stroke-width="3" id="潘广路-刘行" stroke="#f37121" stroke-linecap="round" x1="286.2876153846128"
+				 y1="93.55981395348994" x2="295.9469230769167" y2="104.72818604651268"></line>
+				<line class="route" stroke-width="3" id="刘行-顾村公园" stroke="#f37121" stroke-linecap="round" x1="295.9469230769167"
+				 y1="104.72818604651268" x2="310.8750769230775" y2="125.95981395348853"></line>
+				<line class="route" stroke-width="3" id="顾村公园-祁华路" stroke="#f37121" stroke-linecap="round" x1="310.8750769230775"
+				 y1="125.95981395348853" x2="311.8791538461532" y2="163.5237209302333"></line>
+				<line class="route" stroke-width="3" id="祁华路-上海大学" stroke="#f37121" stroke-linecap="round" x1="311.8791538461532"
+				 y1="163.5237209302333" x2="334.58415384615284" y2="166.59293023256106"></line>
+				<line class="route" stroke-width="3" id="上海大学-南陈路" stroke="#f37121" stroke-linecap="round" x1="334.58415384615284"
+				 y1="166.59293023256106" x2="349.26092307691977" y2="165.11944186046432"></line>
+				<line class="route" stroke-width="3" id="南陈路-上大路" stroke="#f37121" stroke-linecap="round" x1="349.26092307691977"
+				 y1="165.11944186046432" x2="363.43638461537785" y2="175.924465116279"></line>
+				<line class="route" stroke-width="3" id="上大路-场中路" stroke="#f37121" stroke-linecap="round" x1="363.43638461537785"
+				 y1="175.924465116279" x2="370.71192307692843" y2="194.95590697674808"></line>
+				<line class="route" stroke-width="3" id="场中路-大场镇" stroke="#f37121" stroke-linecap="round" x1="370.71192307692843"
+				 y1="194.95590697674808" x2="374.97669230768884" y2="212.39330232558055"></line>
+				<line class="route" stroke-width="3" id="大场镇-行知路" stroke="#f37121" stroke-linecap="round" x1="374.97669230768884"
+				 y1="212.39330232558055" x2="382.00230769230353" y2="226.27255813953613"></line>
+				<line class="route" stroke-width="3" id="行知路-大华三路" stroke="#f37121" stroke-linecap="round" x1="382.00230769230353"
+				 y1="226.27255813953613" x2="384.51176923076406" y2="244.45004651162975"></line>
+				<line class="route" stroke-width="3" id="大华三路-新村路" stroke="#f37121" stroke-linecap="round" x1="384.51176923076406"
+				 y1="244.45004651162975" x2="383.8833076923107" y2="261.2796279069796"></line>
+				<line class="route" stroke-width="3" id="新村路-岚皋路" stroke="#f37121" stroke-linecap="round" x1="383.8833076923107"
+				 y1="261.2796279069796" x2="382.75500000000625" y2="274.4238139534873"></line>
+				<line class="route" stroke-width="3" id="岚皋路-镇坪路" stroke="#f37121" stroke-linecap="round" x1="382.75500000000625"
+				 y1="274.4238139534873" x2="397.05615384615083" y2="290.27386046511464"></line>
+				<line class="route" stroke-width="3" id="镇坪路-长寿路" stroke="#f37121" stroke-linecap="round" x1="397.05615384615083"
+				 y1="290.27386046511464" x2="406.7154615384547" y2="301.4556279069765"></line>
+				<line class="route" stroke-width="3" id="长寿路-昌平路" stroke="#f37121" stroke-linecap="round" x1="406.7154615384547"
+				 y1="301.4556279069765" x2="412.98692307692954" y2="311.9006511627899"></line>
+				<line class="route" stroke-width="3" id="昌平路-静安寺" stroke="#f37121" stroke-linecap="round" x1="412.98692307692954"
+				 y1="311.9006511627899" x2="420.84269230769985" y2="327.9599999999997"></line>
+				<line class="route" stroke-width="3" id="静安寺-常熟路" stroke="#f37121" stroke-linecap="round" x1="420.84269230769985"
+				 y1="327.9599999999997" x2="425.1410769230738" y2="346.13079069767366"></line>
+				<line class="route" stroke-width="3" id="常熟路-肇嘉浜路" stroke="#f37121" stroke-linecap="round" x1="425.1410769230738"
+				 y1="346.13079069767366" x2="424.1516153846181" y2="369.79032558139704"></line>
+				<line class="route" stroke-width="3" id="肇嘉浜路-东安路" stroke="#f37121" stroke-linecap="round" x1="424.1516153846181"
+				 y1="369.79032558139704" x2="431.0515384615463" y2="383.68130232557945"></line>
+				<line class="route" stroke-width="3" id="东安路-龙华中路" stroke="#f37121" stroke-linecap="round" x1="431.0515384615463"
+				 y1="383.68130232557945" x2="434.81499999999767" y2="393.27237209302336"></line>
+				<line class="route" stroke-width="3" id="龙华中路-后滩" stroke="#f37121" stroke-linecap="round" x1="434.81499999999767"
+				 y1="393.27237209302336" x2="458.52407692307304" y2="415.5270697674398"></line>
+				<line class="route" stroke-width="3" id="后滩-长清路" stroke="#f37121" stroke-linecap="round" x1="458.52407692307304"
+				 y1="415.5270697674398" x2="476.58723076923195" y2="410.97767441860174"></line>
+				<line class="route" stroke-width="3" id="长清路-耀华路" stroke="#f37121" stroke-linecap="round" x1="476.58723076923195"
+				 y1="410.97767441860174" x2="489.1637692307745" y2="404.4675348837182"></line>
+				<line class="route" stroke-width="3" id="耀华路-云台路" stroke="#f37121" stroke-linecap="round" x1="489.1637692307745"
+				 y1="404.4675348837182" x2="497.53692307693166" y2="398.1901395348826"></line>
+				<line class="route" stroke-width="3" id="云台路-高科西路" stroke="#f37121" stroke-linecap="round" x1="497.53692307693166"
+				 y1="398.1901395348826" x2="511.3353076923094" y2="392.1655813953474"></line>
+				<line class="route" stroke-width="3" id="高科西路-杨高南路" stroke="#f37121" stroke-linecap="round" x1="511.3353076923094"
+				 y1="392.1655813953474" x2="533.6646923076864" y2="389.21525581395315"></line>
+				<line class="route" stroke-width="3" id="杨高南路-锦绣路" stroke="#f37121" stroke-linecap="round" x1="533.6646923076864"
+				 y1="389.21525581395315" x2="555.6184615384619" y2="389.33748837209345"></line>
+				<line class="route" stroke-width="3" id="锦绣路-芳华路" stroke="#f37121" stroke-linecap="round" x1="555.6184615384619"
+				 y1="389.33748837209345" x2="570.295230769229" y2="380.1164651162771"></line>
+				<line class="route" stroke-width="3" id="芳华路-龙阳路" stroke="#f37121" stroke-linecap="round" x1="570.295230769229"
+				 y1="380.1164651162771" x2="580.7700769230684" y2="363.35888372092984"></line>
+				<line class="route" stroke-width="3" id="龙阳路-花木路" stroke="#f37121" stroke-linecap="round" x1="580.7700769230684"
+				 y1="363.35888372092984" x2="588.6097692307608" y2="349.630325581393"></line>
+				<line class="route" stroke-width="3" id="沈杜公路-联航路" stroke="#009eda" stroke-linecap="round" x1="514.8488461538457"
+				 y1="600.4615813953465" x2="512.4022307692387" y2="580.0571162790678"></line>
+				<line class="route" stroke-width="3" id="联航路-江月路" stroke="#009eda" stroke-linecap="round" x1="512.4022307692387"
+				 y1="580.0571162790678" x2="509.4850000000001" y2="562.1793488372056"></line>
+				<line class="route" stroke-width="3" id="江月路-浦江镇" stroke="#009eda" stroke-linecap="round" x1="509.4850000000001"
+				 y1="562.1793488372056" x2="506.22430769231545" y2="541.6258604651146"></line>
+				<line class="route" stroke-width="3" id="浦江镇-芦恒路" stroke="#009eda" stroke-linecap="round" x1="506.22430769231545"
+				 y1="541.6258604651146" x2="493.6799230769286" y2="504.21934883720814"></line>
+				<line class="route" stroke-width="3" id="芦恒路-凌兆新村" stroke="#009eda" stroke-linecap="round" x1="493.6799230769286"
+				 y1="504.21934883720814" x2="481.88823076922387" y2="466.697302325581"></line>
+				<line class="route" stroke-width="3" id="凌兆新村-东方体育中心" stroke="#009eda" stroke-linecap="round" x1="481.88823076922387"
+				 y1="466.697302325581" x2="468.0576923076904" y2="446.34139534883377"></line>
+				<line class="route" stroke-width="3" id="东方体育中心-杨思" stroke="#009eda" stroke-linecap="round" x1="468.0576923076904"
+				 y1="446.34139534883377" x2="487.65838461538976" y2="433.85860465116497"></line>
+				<line class="route" stroke-width="3" id="杨思-成山路" stroke="#009eda" stroke-linecap="round" x1="487.65838461538976"
+				 y1="433.85860465116497" x2="491.67176923077716" y2="417.74902325581166"></line>
+				<line class="route" stroke-width="3" id="成山路-耀华路" stroke="#009eda" stroke-linecap="round" x1="491.67176923077716"
+				 y1="417.74902325581166" x2="489.1637692307745" y2="404.4675348837182"></line>
+				<line class="route" stroke-width="3" id="耀华路-中华艺术宫" stroke="#009eda" stroke-linecap="round" x1="489.1637692307745"
+				 y1="404.4675348837182" x2="487.40699999999595" y2="393.40297674418355"></line>
+				<line class="route" stroke-width="3" id="中华艺术宫-西藏南路" stroke="#009eda" stroke-linecap="round" x1="487.40699999999595"
+				 y1="393.40297674418355" x2="481.6046923076951" y2="365.180651162789"></line>
+				<line class="route" stroke-width="3" id="西藏南路-陆家浜路" stroke="#009eda" stroke-linecap="round" x1="481.6046923076951"
+				 y1="365.180651162789" x2="476.61938461538773" y2="348.7160930232536"></line>
+				<line class="route" stroke-width="3" id="陆家浜路-老西门" stroke="#009eda" stroke-linecap="round" x1="476.61938461538773"
+				 y1="348.7160930232536" x2="473.45076923077596" y2="337.1475348837184"></line>
+				<line class="route" stroke-width="3" id="老西门-大世界" stroke="#009eda" stroke-linecap="round" x1="473.45076923077596"
+				 y1="337.1475348837184" x2="466.70869230769006" y2="323.21469767441835"></line>
+				<line class="route" stroke-width="3" id="大世界-人民广场" stroke="#009eda" stroke-linecap="round" x1="466.70869230769006"
+				 y1="323.21469767441835" x2="459.6363076922996" y2="310.44893023255815"></line>
+				<line class="route" stroke-width="3" id="人民广场-曲阜路" stroke="#009eda" stroke-linecap="round" x1="459.6363076922996"
+				 y1="310.44893023255815" x2="455.3247692307635" y2="297.5927441860491"></line>
+				<line class="route" stroke-width="3" id="曲阜路-中兴路" stroke="#009eda" stroke-linecap="round" x1="455.3247692307635"
+				 y1="297.5927441860491" x2="451.78053846152926" y2="279.7149767441868"></line>
+				<line class="route" stroke-width="3" id="中兴路-西藏北路" stroke="#009eda" stroke-linecap="round" x1="451.78053846152926"
+				 y1="279.7149767441868" x2="451.1856923076895" y2="262.0783255813983"></line>
+				<line class="route" stroke-width="3" id="西藏北路-虹口足球场" stroke="#009eda" stroke-linecap="round" x1="451.1856923076895"
+				 y1="262.0783255813983" x2="466.55961538461565" y2="248.90232558139337"></line>
+				<line class="route" stroke-width="3" id="虹口足球场-曲阳路" stroke="#009eda" stroke-linecap="round" x1="466.55961538461565"
+				 y1="248.90232558139337" x2="483.92561538461547" y2="240.27404651162607"></line>
+				<line class="route" stroke-width="3" id="曲阳路-四平路" stroke="#009eda" stroke-linecap="round" x1="483.92561538461547"
+				 y1="240.27404651162607" x2="499.16800000000285" y2="243.06027906976834"></line>
+				<line class="route" stroke-width="3" id="四平路-鞍山新村" stroke="#009eda" stroke-linecap="round" x1="499.16800000000285"
+				 y1="243.06027906976834" x2="511.0225384615405" y2="245.9235348837205"></line>
+				<line class="route" stroke-width="3" id="鞍山新村-江浦路" stroke="#009eda" stroke-linecap="round" x1="511.0225384615405"
+				 y1="245.9235348837205" x2="523.8183076923003" y2="242.976558139533"></line>
+				<line class="route" stroke-width="3" id="江浦路-黄兴路" stroke="#009eda" stroke-linecap="round" x1="523.8183076923003"
+				 y1="242.976558139533" x2="538.557923076921" y2="236.5283720930258"></line>
+				<line class="route" stroke-width="3" id="黄兴路-延吉中路" stroke="#009eda" stroke-linecap="round" x1="538.557923076921"
+				 y1="236.5283720930258" x2="548.1543846153919" y2="220.1307906976739"></line>
+				<line class="route" stroke-width="3" id="延吉中路-黄兴公园" stroke="#009eda" stroke-linecap="round" x1="548.1543846153919"
+				 y1="220.1307906976739" x2="545.3935384615377" y2="208.15702325581293"></line>
+				<line class="route" stroke-width="3" id="黄兴公园-翔殷路" stroke="#009eda" stroke-linecap="round" x1="545.3935384615377"
+				 y1="208.15702325581293" x2="543.8253076922992" y2="192.74567441860893"></line>
+				<line class="route" stroke-width="3" id="翔殷路-嫩江路" stroke="#009eda" stroke-linecap="round" x1="543.8253076922992"
+				 y1="192.74567441860893" x2="543.5125384615304" y2="176.23088372092988"></line>
+				<line class="route" stroke-width="3" id="嫩江路-市光路" stroke="#009eda" stroke-linecap="round" x1="543.5125384615304"
+				 y1="176.23088372092988" x2="543.5125384615304" y2="163.03311627907186"></line>
+				<line class="route" stroke-width="3" id="松江南站-醉白池" stroke="#79c8ed" stroke-linecap="round" x1="103.60846153846892"
+				 y1="728.7923720930194" x2="101.28753846154858" y2="701.4424186046466"></line>
+				<line class="route" stroke-width="3" id="醉白池-松江体育中心" stroke="#79c8ed" stroke-linecap="round" x1="101.28753846154858"
+				 y1="701.4424186046466" x2="103.10715384615996" y2="677.176744186047"></line>
+				<line class="route" stroke-width="3" id="松江体育中心-松江新城" stroke="#79c8ed" stroke-linecap="round" x1="103.10715384615996"
+				 y1="677.176744186047" x2="103.41992307692877" y2="652.5443720930207"></line>
+				<line class="route" stroke-width="3" id="松江新城-松江大学城" stroke="#79c8ed" stroke-linecap="round" x1="103.41992307692877"
+				 y1="652.5443720930207" x2="106.18076923078306" y2="612.8958139534839"></line>
+				<line class="route" stroke-width="3" id="松江大学城-洞泾" stroke="#79c8ed" stroke-linecap="round" x1="106.18076923078306"
+				 y1="612.8958139534839" x2="102.98146153847345" y2="561.9332093023246"></line>
+				<line class="route" stroke-width="3" id="洞泾-佘山" stroke="#79c8ed" stroke-linecap="round" x1="102.98146153847345"
+				 y1="561.9332093023246" x2="101.79030769231538" y2="529.07441860465"></line>
+				<line class="route" stroke-width="3" id="佘山-泗泾" stroke="#79c8ed" stroke-linecap="round" x1="101.79030769231538"
+				 y1="529.07441860465" x2="146.51046153846545" y2="505.3880930232544"></line>
+				<line class="route" stroke-width="3" id="泗泾-九亭" stroke="#79c8ed" stroke-linecap="round" x1="146.51046153846545"
+				 y1="505.3880930232544" x2="233.06715384616126" y2="473.7080930232524"></line>
+				<line class="route" stroke-width="3" id="九亭-中春路" stroke="#79c8ed" stroke-linecap="round" x1="233.06715384616126"
+				 y1="473.7080930232524" x2="259.78700000000606" y2="453.10604651163004"></line>
+				<line class="route" stroke-width="3" id="中春路-七宝" stroke="#79c8ed" stroke-linecap="round" x1="259.78700000000606"
+				 y1="453.10604651163004" x2="276.66046153846474" y2="443.45134883720937"></line>
+				<line class="route" stroke-width="3" id="七宝-星中路" stroke="#79c8ed" stroke-linecap="round" x1="276.66046153846474"
+				 y1="443.45134883720937" x2="305.6369230769184" y2="438.654139534884"></line>
+				<line class="route" stroke-width="3" id="星中路-合川路" stroke="#79c8ed" stroke-linecap="round" x1="305.6369230769184"
+				 y1="438.654139534884" x2="328.5933076923118" y2="424.57395348837184"></line>
+				<line class="route" stroke-width="3" id="合川路-漕河泾开发区" stroke="#79c8ed" stroke-linecap="round" x1="328.5933076923118"
+				 y1="424.57395348837184" x2="347.5363076923178" y2="417.8093023255816"></line>
+				<line class="route" stroke-width="3" id="漕河泾开发区-桂林路" stroke="#79c8ed" stroke-linecap="round" x1="347.5363076923178"
+				 y1="417.8093023255816" x2="377.2040769230784" y2="410.7399069767468"></line>
+				<line class="route" stroke-width="3" id="桂林路-宜山路" stroke="#79c8ed" stroke-linecap="round" x1="377.2040769230784"
+				 y1="410.7399069767468" x2="390.5318461538451" y2="390.69041860465023"></line>
+				<line class="route" stroke-width="3" id="宜山路-徐家汇" stroke="#79c8ed" stroke-linecap="round" x1="390.5318461538451"
+				 y1="390.69041860465023" x2="403.8289230769346" y2="378.8338604651164"></line>
+				<line class="route" stroke-width="3" id="徐家汇-肇嘉浜路" stroke="#79c8ed" stroke-linecap="round" x1="403.8289230769346"
+				 y1="378.8338604651164" x2="424.1516153846181" y2="369.79032558139704"></line>
+				<line class="route" stroke-width="3" id="肇嘉浜路-嘉善路" stroke="#79c8ed" stroke-linecap="round" x1="424.1516153846181"
+				 y1="369.79032558139704" x2="439.61323076922275" y2="363.83609302325806"></line>
+				<line class="route" stroke-width="3" id="嘉善路-打浦桥" stroke="#79c8ed" stroke-linecap="round" x1="439.61323076922275"
+				 y1="363.83609302325806" x2="451.0278461538473" y2="357.8132093023233"></line>
+				<line class="route" stroke-width="3" id="打浦桥-马当路" stroke="#79c8ed" stroke-linecap="round" x1="451.0278461538473"
+				 y1="357.8132093023233" x2="463.6979230769206" y2="352.5270697674428"></line>
+				<line class="route" stroke-width="3" id="马当路-陆家浜路" stroke="#79c8ed" stroke-linecap="round" x1="463.6979230769206"
+				 y1="352.5270697674428" x2="476.61938461538773" y2="348.7160930232536"></line>
+				<line class="route" stroke-width="3" id="陆家浜路-小南门" stroke="#79c8ed" stroke-linecap="round" x1="476.61938461538773"
+				 y1="348.7160930232536" x2="494.4954615384643" y2="340.29711627906863"></line>
+				<line class="route" stroke-width="3" id="小南门-商城路" stroke="#79c8ed" stroke-linecap="round" x1="494.4954615384643"
+				 y1="340.29711627906863" x2="520.7753846153752" y2="317.8063255813976"></line>
+				<line class="route" stroke-width="3" id="商城路-世纪大道" stroke="#79c8ed" stroke-linecap="round" x1="520.7753846153752"
+				 y1="317.8063255813976" x2="536.7076153846117" y2="320.32632558139437"></line>
+				<line class="route" stroke-width="3" id="世纪大道-杨高中路" stroke="#79c8ed" stroke-linecap="round" x1="536.7076153846117"
+				 y1="320.32632558139437" x2="568.1935384615466" y2="322.41432558139326"></line>
+				<circle class="station" id="马陆" cx="170.81584615385916" cy="168.1350697674417" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="共康路" cx="419.4966153846152" cy="169.11293023255783" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="淞虹路" cx="291.69823076923416" cy="337.88595348837305" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="刘行" cx="295.9469230769167" cy="104.72818604651268" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江浦路" cx="523.8183076923003" cy="242.976558139533" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="海天三路" cx="930.7763846153808" cy="421.14474418604885" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="华夏中路" cx="618.2775384615422" cy="409.01860465116266" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中潭路" cx="410.728846153842" cy="277.004093023254" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="嘉定新城" cx="137.76169230768585" cy="150.70269767442238" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="丰庄" cx="285.22215384616203" cy="297.224372093022" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金海路" cx="699.7232307692234" cy="262.57730232557975" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙柏新村" cx="307.864307692308" cy="407.43460465116436" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="桃浦新村" cx="277.1924615384716" cy="231.6842790697696" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="铁力路" cx="440.0838461538546" cy="20.215255813954798" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="场中路" cx="370.71192307692843" cy="194.95590697674808" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="杨思" cx="487.65838461538976" cy="433.85860465116497" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="西藏南路" cx="481.6046923076951" cy="365.180651162789" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="昌平路" cx="412.98692307692954" cy="311.9006511627899" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江湾体育场" cx="517.6082307692213" cy="196.23851162790865" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金平路" cx="365.50592307692517" cy="684.4370232558119" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="曲阜路" cx="455.3247692307635" cy="297.5927441860491" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="国权路" cx="511.5866923077031" cy="218.925209302329" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="嘉善路" cx="439.61323076922275" cy="363.83609302325806" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="肇嘉浜路" cx="424.1516153846181" cy="369.79032558139704" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="巨峰路" cx="626.055846153839" cy="233.21134883721078" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中兴路" cx="451.78053846152926" cy="279.7149767441868" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="隆昌路" cx="562.32984615385" cy="242.55460465116144" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东川路" cx="379.80707692306964" cy="672.8584186046504" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海图书馆" cx="415.99769230769897" cy="355.338418604651" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="虹口足球场" cx="466.55961538461565" cy="248.90232558139337" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="枫桥路" cx="367.3883846153902" cy="298.4533953488381" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东安路" cx="431.0515384615463" cy="383.68130232557945" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大木桥路" cx="443.1559999999991" cy="378.334883720929" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="武宁路" cx="395.5507692307661" cy="310.98641860465045" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="后滩" cx="458.52407692307304" cy="415.5270697674398" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="紫藤路" cx="298.7063076923131" cy="419.3614883720944" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙漕路" cx="415.6834615384723" cy="419.52390697674605" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="老西门" cx="473.45076923077596" cy="337.1475348837184" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="临平路" cx="497.9125384615333" cy="266.37823255814266" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金沙江路" cx="368.07823076923927" cy="316.33116279070043" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宝安公路" cx="395.91176923076847" cy="84.42083720930258" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中春路" cx="259.78700000000606" cy="453.10604651163004" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="漕河泾开发区" cx="347.5363076923178" cy="417.8093023255816" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="莘庄" cx="329.37815384614953" cy="517.0068837209272" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="花桥" cx="-81.26592307690883" cy="203.06846511628208" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="共富新村" cx="400.4279230769227" cy="108.47386046511883" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="合川路" cx="328.5933076923118" cy="424.57395348837184" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="鹤沙航城" cx="659.6113076923004" cy="573.009488372092" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海儿童医学中心" cx="531.2195384615375" cy="362.9670697674431" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="松江新城" cx="103.41992307692877" cy="652.5443720930207" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东陆路" cx="612.5073846153764" cy="230.17897674418748" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="花木路" cx="588.6097692307608" cy="349.630325581393" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="桂林路" cx="377.2040769230784" cy="410.7399069767468" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海体育场" cx="414.366615384607" cy="392.5339534883746" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东宝兴路" cx="467.99484615383676" cy="268.10455813953394" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="鲁班路" cx="460.65646153845324" cy="369.7283720930207" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="云山路" cx="603.2236923076949" cy="284.0081860465117" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="石龙路" cx="413.86530769231877" cy="438.89190697674496" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="交通大学" cx="402.3235384615499" cy="364.6967441860471" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金桥路" cx="616.5207692307637" cy="272.8883720930262" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="白银路" cx="124.77738461538588" cy="125.04725581395549" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="外高桥保税区南站" cx="645.9386153846092" cy="164.7510697674431" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="邮电新村" cx="488.63030769230977" cy="253.80837209302584" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="虹桥火车站" cx="236.09400000000858" cy="378.5106976744196" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="唐镇" cx="725.737153846162" cy="346.0286511627921" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="同济大学" cx="506.1614615384618" cy="230.90065116279044" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="九亭" cx="233.06715384616126" cy="473.7080930232524" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="天潼路" cx="471.69546153845533" cy="295.11962790697726" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="佘山" cx="101.79030769231538" cy="529.07441860465" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江浦公园" cx="531.6258461538371" cy="260.39720930232556" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="通河新村" cx="411.3426923076961" cy="148.73358139535102" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江苏路" cx="396.03599999999716" cy="335.6723720930212" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="博兴路" cx="623.6092307692321" cy="262.016372093022" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="周浦东" cx="653.2769999999927" cy="519.0446511627886" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="耀华路" cx="489.1637692307745" cy="404.4675348837182" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="创新中路" cx="750.8566153846127" cy="345.10604651162674" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="常熟路" cx="425.1410769230738" cy="346.13079069767366" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="四平路" cx="499.16800000000285" cy="243.06027906976834" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江湾镇" cx="475.14469230770084" cy="191.69413953488385" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="浦电路" cx="539.4348461538524" cy="334.6359069767475" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="隆德路" cx="385.38869230769546" cy="317.49990697674673" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="北洋泾路" cx="573.4316923076849" cy="302.8688372093032" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="源深体育中心" cx="547.5273846153757" cy="313.18995348837007" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="水城路" cx="339.8530000000098" cy="369.72167441860717" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="塘桥" cx="524.1310769230691" cy="351.96613953488514" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="芳华路" cx="570.295230769229" cy="380.1164651162771" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="南京东路" cx="474.75300000000055" cy="305.3804651162801" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="锦绣路" cx="555.6184615384619" cy="389.33748837209345" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="黄兴公园" cx="545.3935384615377" cy="208.15702325581293" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="娄山关路" cx="356.7089230769327" cy="349.71572093023474" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="长寿路" cx="406.7154615384547" cy="301.4556279069765" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="罗南新村" cx="288.7970769230733" cy="52.21004651162774" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宁国路" cx="544.2023846153795" cy="253.5789767441848" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="顾村公园" cx="310.8750769230775" cy="125.95981395348853" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="真如" cx="361.36684615385127" cy="283.5242790697697" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="四川北路" cx="473.95353846154273" cy="281.23534883720845" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江杨北路" cx="408.91069230768846" cy="20.767813953492606" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="淞滨路" cx="486.3722307692223" cy="82.41655813953902" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="打浦桥" cx="451.0278461538473" cy="357.8132093023233" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="御桥" cx="600.5900000000058" cy="438.5319069767437" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="航津路" cx="634.2097692307788" cy="141.7328372093061" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="淞浜路" cx="486.3722307692223" cy="82.41655813953902" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="徐泾东" cx="203.72969230770514" cy="387.8857674418616" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="李子园" cx="336.08953846153753" cy="252.87237209302145" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="航头东" cx="668.8950000000026" cy="611.4189767441864" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="长清路" cx="476.58723076923195" cy="410.97767441860174" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="小南门" cx="494.4954615384643" cy="340.29711627906863" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="潘广路" cx="286.2876153846128" cy="93.55981395348994" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金科路" cx="645.9693076923071" cy="361.33116279069486" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="高科西路" cx="511.3353076923094" cy="392.1655813953474" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="川沙" cx="786.6087692307659" cy="390.55981395349" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="北新泾" cx="312.52076923076874" cy="340.4662325581398" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="淞发路" cx="497.53692307693166" cy="125.61488372093274" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="松江体育中心" cx="103.10715384615996" cy="677.176744186047" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="江月路" cx="509.4850000000001" cy="562.1793488372056" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海马戏城" cx="426.52076923077203" cy="234.68818604651426" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="徐家汇" cx="403.8289230769346" cy="378.8338604651164" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海科技馆" cx="561.6867692307766" cy="336.94827906976826" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙华中路" cx="434.81499999999767" cy="393.27237209302336" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海南站" cx="396.1456153846266" cy="446.641116279071" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="衡山路" cx="418.618230769226" cy="361.1268837209316" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="黄陂南路" cx="457.8824615384575" cy="330.3996279069798" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海体育馆" cx="405.4600000000059" cy="397.08334883720664" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宝山路" cx="462.161846153838" cy="282.0424186046531" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="北桥" cx="365.5687692307788" cy="627.7244651162771" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="延长路" cx="431.66392307692166" cy="248.20074418604906" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="剑川路" cx="374.97669230768884" cy="658.9406511627898" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="镇坪路" cx="397.05615384615083" cy="290.27386046511464" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="马当路" cx="463.6979230769206" cy="352.5270697674428" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="锦江乐园" cx="371.7013846153842" cy="465.64744186046227" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大连路" cx="515.97715384615" cy="271.2909767441888" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="汶水路" cx="424.01130769231156" cy="213.31758139535222" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="成山路" cx="491.67176923077716" cy="417.74902325581166" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="新场" cx="714.6820769230821" cy="627.1166511627885" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="真北路" cx="324.6106153846223" cy="314.61153488372275" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="殷高西路" cx="474.76907692307844" cy="167.65953488371977" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="灵岩南路" cx="489.9471538461543" cy="454.3886511627907" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="蓝村路" cx="537.4909999999916" cy="348.89358139535057" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="三林东" cx="530.5910769230842" cy="458.08744186046596" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大柏树" cx="472.4160000000023" cy="218.64893023255718" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="漕溪路" cx="406.87184615383904" cy="407.381023255814" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="航中路" cx="285.66061538461736" cy="426.8628837209273" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="嫩江路" cx="543.5125384615304" cy="176.23088372092988" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中华艺术宫" cx="487.40699999999595" cy="393.40297674418355" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="杨高中路" cx="568.1935384615466" cy="322.41432558139326" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="杨高北路" cx="647.4439999999939" cy="234.35497674418525" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="临港大道" cx="1097.4765384615332" cy="831.5213023255757" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="浦东大道" cx="525.1979999999985" cy="301.3317209302358" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="闵行开发区" cx="306.42176923077693" cy="702.2980465116284" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海大学" cx="334.58415384615284" cy="166.59293023256106" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="光明路" cx="-62.57430769229663" cy="207.36669767442015" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="世纪大道" cx="536.7076153846117" cy="320.32632558139437" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="世纪公园" cx="571.3139230769248" cy="352.5890232558132" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="外高桥保税区北" cx="623.9220000000008" cy="120.9884651162789" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="嘉定北" cx="113.11138461538836" cy="47.73934883721188" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="祁连山路" cx="315.7668461538541" cy="248.51218604651314" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="浦三路" cx="553.9873846153907" cy="450.6463255813972" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金运路" cx="233.03646153846336" cy="300.1110697674396" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="延安西路" cx="375.6986923076937" cy="352.21227906976605" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="五洲大道" cx="627.246999999997" cy="196.61358139534943" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="美兰湖" cx="277.38100000001174" cy="30.37395348837603" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="﻿世纪大道" cx="536.7076153846117" cy="320.32632558139437" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="港城路" cx="606.1716153846108" cy="112.27479069767585" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="洞泾" cx="102.98146153847345" cy="561.9332093023246" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="松江大学城" cx="106.18076923078306" cy="612.8958139534839" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="民生路" cx="560.5730769230714" cy="308.3374883720939" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大场镇" cx="374.97669230768884" cy="212.39330232558055" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="文井路" cx="322.7924615384688" cy="697.2479999999966" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="友谊路" cx="461.65907692307115" cy="26.839255813958623" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="德平路" cx="590.8049999999947" cy="292.36186046511943" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="外高桥保税区北站" cx="623.9220000000008" cy="120.9884651162789" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="昌吉东路" cx="59.04469230770326" cy="211.6649302325581" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中山北路" cx="437.3083846153803" cy="269.943069767445" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海火车站" cx="432.2909230769172" cy="289.1101395348815" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="远东大道" cx="870.0611538461615" cy="369.44372093023486" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="人民广场" cx="459.6363076922996" cy="310.44893023255815" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="陆家浜路" cx="476.61938461538773" cy="348.7160930232536" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="杨树浦路" cx="521.998692307689" cy="281.42790697674496" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海大学站" cx="334.58415384615284" cy="166.59293023256106" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="武威路" cx="299.0205384615398" cy="239.97432558139474" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="浦江镇" cx="506.22430769231545" cy="541.6258604651146" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="黄兴路" cx="538.557923076921" cy="236.5283720930258" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="凌空路" cx="823.9919999999903" cy="380.35423255813805" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="五莲路" cx="625.3031538461569" cy="247.82902325581512" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="虹桥1号航站楼" cx="273.86892307693336" cy="382.9981395348814" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="漕宝路" cx="401.93330769230744" cy="421.863069767439" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="广兰路" cx="673.8496153846121" cy="349.8530232558145" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="野生动物园" cx="788.3187692307686" cy="619.4210232558128" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="李子园路" cx="336.08953846153753" cy="252.87237209302145" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="汉中路" cx="436.0543846153894" cy="298.6945116279059" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙溪路" cx="321.6626923076857" cy="377.95813953488187" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东方体育中心" cx="468.0576923076904" cy="446.34139534883377" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海西站" cx="352.14600000000274" cy="263.3759999999984" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="新闸路" cx="450.3555384615339" cy="304.10120930232625" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="张华浜" cx="495.090307692304" cy="104.19739534883995" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="泗泾" cx="146.51046153846545" cy="505.3880930232544" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大渡河路" cx="342.8637692307792" cy="315.4102325581415" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海野生动物园" cx="788.3187692307686" cy="619.4210232558128" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="洲海路" cx="627.6226153846194" cy="180.52744186046743" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宜山路" cx="390.5318461538451" cy="390.69041860465023" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东明路" cx="512.9035384615478" cy="414.23609302325326" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="岚皋路" cx="382.75500000000625" cy="274.4238139534873" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="爱国路" cx="573.9008461538382" cy="234.81544186046767" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="南京西路" cx="438.3738461538519" cy="318.34381395348987" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="西藏北路" cx="451.1856923076895" cy="262.0783255813983" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="提篮桥" cx="506.88200000000876" cy="278.91627906976817" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东靖路" cx="626.5571538461479" cy="216.447069767444" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="外环路" cx="340.7796153846118" cy="501.56874418604514" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="彭浦新村" cx="421.75323076922405" cy="189.98623255813885" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="华宁路" cx="343.8035384615435" cy="690.8416744186011" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="豫园" cx="478.71961538461215" cy="322.39925581395374" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="延吉中路" cx="548.1543846153919" cy="220.1307906976739" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="罗山路" cx="633.017153846163" cy="446.5255813953503" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金京路" cx="665.7892307692238" cy="234.84725581395307" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="南翔" cx="238.5566923076933" cy="205.89320930232932" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="颛桥" cx="353.46284615384735" cy="591.0982325581372" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上南路" cx="506.0664615384525" cy="453.7121860465122" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="长江南路" cx="484.42838461538224" cy="147.46437209302354" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="虹桥2号航站楼" cx="242.993923076916" cy="377.9882790697668" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="银都路" cx="336.6536923077001" cy="553.6180465116277" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="嘉定西" cx="99.18730769230335" cy="71.78734883720898" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="鞍山新村" cx="511.0225384615405" cy="245.9235348837205" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="曲阳路" cx="483.92561538461547" cy="240.27404651162607" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="虹桥路" cx="381.1867692307679" cy="372.49451162790433" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上大路" cx="363.43638461537785" cy="175.924465116279" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="沈杜公路" cx="514.8488461538457" cy="600.4615813953465" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="芦恒路" cx="493.6799230769286" cy="504.21934883720814" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙耀路" cx="438.0128461538494" cy="435.82604651162995" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海游泳馆" cx="411.230153846151" cy="403.238511627908" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="醉白池" cx="101.28753846154858" cy="701.4424186046466" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="联航路" cx="512.4022307692387" cy="580.0571162790678" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海汽车城" cx="30.379538461539774" cy="225.480558139537" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海动物园" cx="304.6021538461655" cy="384.96558139534636" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="三林" cx="513.9704615384563" cy="463.5611162790698" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="新村路" cx="383.8833076923107" cy="261.2796279069796" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="水产路" cx="479.66084615385506" cy="64.99255813953967" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="中山公园" cx="373.70661538462" cy="338.1304186046535" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="陆家嘴" cx="500.21884615385443" cy="304.3356279069745" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="云台路" cx="497.53692307693166" cy="398.1901395348826" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="商城路" cx="520.7753846153752" cy="317.8063255813976" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="威宁路" cx="332.12146153846805" cy="343.47683720930394" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="华夏东路" cx="761.5828461538459" cy="374.14716279069853" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="行知路" cx="382.00230769230353" cy="226.27255813953613" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="赤峰路" cx="471.2409230769221" cy="232.3289302325567" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="五角场" cx="518.2352307692375" cy="204.22046511628253" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="海伦路" cx="481.9189230769217" cy="269.5713488372111" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="三门路" cx="509.1254615384555" cy="178.78604651163076" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="南陈路" cx="349.26092307691977" cy="165.11944186046432" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="春申路" cx="330.1936923076851" cy="538.9719069767448" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="安亭" cx="2.908461538470831" cy="220.1994418604638" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="惠南东" cx="926.4326923076891" cy="659.1951627906967" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="兆丰路" cx="-14.089230769216503" cy="219.3404651162811" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="静安寺" cx="420.84269230769985" cy="327.9599999999997" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="市光路" cx="543.5125384615304" cy="163.03311627907186" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大华三路" cx="384.51176923076406" cy="244.45004651162975" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙阳路" cx="580.7700769230684" cy="363.35888372092984" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="祁连山南路" cx="302.784000000012" cy="305.57972093023017" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="严御路" cx="579.0761538461435" cy="444.31199999999836" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="龙华" cx="428.1664615384633" cy="414.24446511627923" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宋园路" cx="368.70523076923473" cy="374.88390697674686" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="外高桥保税区南" cx="645.9386153846092" cy="164.7510697674431" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="南浦大桥" cx="496.5328461538559" cy="354.240000000001" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="翔殷路" cx="543.8253076922992" cy="192.74567441860893" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="书院" cx="1009.1630769230798" cy="771.7981395348825" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="云锦路" cx="436.2575384615496" cy="424.57395348837184" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="富锦路" cx="386.7552307692315" cy="46.386418604654985" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="杨高南路" cx="533.6646923076864" cy="389.21525581395315" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="七宝" cx="276.66046153846474" cy="443.45134883720937" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="凌兆新村" cx="481.88823076922387" cy="466.697302325581" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="新天地" cx="460.9063846153892" cy="341.2029767441881" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="莲花路" cx="355.33069230769235" cy="484.3456744186023" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="松江南站" cx="103.60846153846892" cy="728.7923720930194" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="华夏西路" cx="518.0466923076973" cy="452.3592558139553" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="祁华路" cx="311.8791538461532" cy="163.5237209302333" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="呼兰路" cx="405.82246153846614" cy="134.49432558140012" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="复兴岛" cx="586.4145384615477" cy="233.61823255814284" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="高青路" cx="520.1162307692239" cy="435.57153488372313" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="东昌路" cx="519.6470769230707" cy="312.6457674418582" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="曹杨路" cx="376.4192307692407" cy="305.02716279069836" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="大世界" cx="466.70869230769006" cy="323.21469767441835" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="友谊西路" cx="391.5213076923008" cy="64.78827906977047" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="星中路" cx="305.6369230769184" cy="438.654139534884" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="殷高东路" cx="506.88200000000876" cy="164.4513488372118" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="临沂新村" cx="521.3716923076935" cy="379.6861395348855" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="滴水湖" cx="1124.8233846153735" cy="858.7691162790667" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="陕西南路" cx="438.43815384616335" cy="339.4933953488368" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="伊犁路" cx="356.5364615384704" cy="370.4584186046496" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="浦东国际机场" cx="944.5119230769258" cy="451.1536744186045" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="新江湾城" cx="506.88200000000876" cy="153.15739534883608" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="惠南" cx="879.3916153846186" cy="613.2658604651174" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="金沙江西路" cx="256.1813846153969" cy="299.8046511627887" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="上海赛车场" cx="96.61500000000999" cy="147.5715348837243" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="申江路" cx="682.3177692307786" cy="234.07869767441935" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="张江高科" cx="625.0678461538411" cy="365.2961860465097" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="国际客运中心" cx="494.27476923076836" cy="284.50716279069906" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<circle class="station" id="宝杨路" cx="467.17930769230117" cy="41.43683720930436" r="2" style="stroke: grey; fill: rgb(255, 255, 255);"></circle>
+				<g transform="translate(40, 270)">
+					<g class="line_no" transform="translate(0 ,0)">
+						<circle r="10" style="fill: rgb(233, 27, 57);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">1</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,28)">
+						<circle r="10" style="fill: rgb(138, 197, 63);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">2</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,56)">
+						<circle r="10" style="fill: rgb(250, 209, 7);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">3</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,84)">
+						<circle r="10" style="fill: rgb(80, 46, 141);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">4</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,112)">
+						<circle r="10" style="fill: rgb(144, 86, 163);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">5</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,140)">
+						<circle r="10" style="fill: rgb(214, 24, 112);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">6</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,168)">
+						<circle r="10" style="fill: rgb(243, 113, 33);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">7</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,196)">
+						<circle r="10" style="fill: rgb(0, 158, 218);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">8</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,224)">
+						<circle r="10" style="fill: rgb(121, 200, 237);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">9</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,252)">
+						<circle r="10" style="fill: rgb(188, 168, 209);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">10</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,280)">
+						<circle r="10" style="fill: rgb(126, 33, 49);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">11</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,308)">
+						<circle r="10" style="fill: rgb(0, 124, 101);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">12</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,336)">
+						<circle r="10" style="fill: rgb(232, 149, 192);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">13</text>
+					</g>
+					<g class="line_no" transform="translate(0 ,364)">
+						<circle r="10" style="fill: rgb(141, 209, 191);"></circle>
+						<text text-anchor="middle" dy="0.35em" style="fill: white;">16</text>
+					</g>
+				</g>
+				<g class="legend" transform="translate(800,500)">
+					<g>
+						<text y="10">人次/5分钟</text>
+						<circle cy="-13.416407864998737" r="13.416407864998737"></circle>
+						<text y="-26.832815729997474" dy="1.3em">100</text>
+					</g>
+					<g>
+						<text y="10">人次/5分钟</text>
+						<circle cy="-26.832815729997474" r="26.832815729997474"></circle>
+						<text y="-53.66563145999495" dy="1.3em">400</text>
+					</g>
+					<g>
+						<text y="10">人次/5分钟</text>
+						<circle cy="-42.426406871192846" r="42.426406871192846"></circle>
+						<text y="-84.85281374238569" dy="1.3em">1000</text>
+					</g>
+				</g>
+				<g transform="translate(700, 720)">
+					<text class="data-source">数据源: 上海地铁2015年4月1日一卡通刷卡数据</text>
+				</g>
+				<g width="200" height="200" transform="translate(750, 110)">
+					<text class="lengend-header" x="-40" y="-20" dy=".35em">流量TOP10站点排行(人次/5分钟)</text>
+					<g class="bar" transform="translate(0, 0)">
+						<rect width="200" height="17" style="fill: rgb(233, 27, 57);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">通河新村</text>
+						<text class="entry-value" x="197" y="8.5" dy=".35em" text-anchor="end">97</text>
+					</g>
+					<g class="bar" transform="translate(0, 20)">
+						<rect width="179.3814432989691" height="17" style="fill: rgb(233, 27, 57);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">莲花路</text>
+						<text class="entry-value" x="176.3814432989691" y="8.5" dy=".35em" text-anchor="end">87</text>
+					</g>
+					<g class="bar" transform="translate(0, 40)">
+						<rect width="173.1958762886598" height="17" style="fill: rgb(138, 197, 63);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">淞虹路</text>
+						<text class="entry-value" x="170.1958762886598" y="8.5" dy=".35em" text-anchor="end">84</text>
+					</g>
+					<g class="bar" transform="translate(0, 60)">
+						<rect width="154.63917525773198" height="17" style="fill: rgb(233, 27, 57);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">彭浦新村</text>
+						<text class="entry-value" x="151.63917525773198" y="8.5" dy=".35em" text-anchor="end">75</text>
+					</g>
+					<g class="bar" transform="translate(0, 80)">
+						<rect width="140.2061855670103" height="17" style="fill: rgb(233, 27, 57);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">共富新村</text>
+						<text class="entry-value" x="137.2061855670103" y="8.5" dy=".35em" text-anchor="end">68</text>
+					</g>
+					<g class="bar" transform="translate(0, 100)">
+						<rect width="134.020618556701" height="17" style="fill: rgb(233, 27, 57);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">莘庄</text>
+						<text class="entry-value" x="131.020618556701" y="8.5" dy=".35em" text-anchor="end">65</text>
+					</g>
+					<g class="bar" transform="translate(0, 120)">
+						<rect width="134.020618556701" height="17" style="fill: rgb(138, 197, 63);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">徐泾东</text>
+						<text class="entry-value" x="131.020618556701" y="8.5" dy=".35em" text-anchor="end">65</text>
+					</g>
+					<g class="bar" transform="translate(0, 140)">
+						<rect width="127.83505154639174" height="17" style="fill: rgb(138, 197, 63);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">广兰路</text>
+						<text class="entry-value" x="124.83505154639174" y="8.5" dy=".35em" text-anchor="end">62</text>
+					</g>
+					<g class="bar" transform="translate(0, 160)">
+						<rect width="127.83505154639174" height="17" style="fill: rgb(121, 200, 237);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">七宝</text>
+						<text class="entry-value" x="124.83505154639174" y="8.5" dy=".35em" text-anchor="end">62</text>
+					</g>
+					<g class="bar" transform="translate(0, 180)">
+						<rect width="125.77319587628865" height="17" style="fill: rgb(141, 209, 191);"></rect>
+						<text class="label" x="-3" y="8.5" dy=".35em" text-anchor="end">惠南</text>
+						<text class="entry-value" x="122.77319587628865" y="8.5" dy=".35em" text-anchor="end">61</text>
+					</g>
+				</g>
+				<g width="200" height="200" transform="translate(190, 50)">
+					<circle r="40" fill="none" class="clock outercircle" stroke="black" stroke-width="1"></circle>
+					<circle r="3" fill="black" class="clock innercircle"></circle>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(0)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(30.04172461752434)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(60.08344923504868)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(90.12517385257301)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(120.16689847009737)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(150.2086230876217)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(180.25034770514603)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(210.29207232267038)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(240.33379694019473)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(270.3755215577191)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(300.4172461752434)" stroke="black" stroke-width="1"></line>
+					<line class="hour-tick" x1="0" x2="0" y1="39" y2="37" transform="rotate(330.45897079276773)" stroke="black" stroke-width="1"></line>
+					<path d="M2.1431318985078682e-15,-35A35,35 0 0,1 2.1431318985078682e-15,-35L0,0Z" class="clockhand" stroke="black"
+					 stroke-width="2" fill="none"></path>
+					<path d="M-0.08738755653043516,19.99980908446287A20,20 0 0,1 -0.08738755653043516,19.99980908446287L0,0Z" class="clockhand"
+					 stroke="black" stroke-width="3" fill="none"></path>
+					<g transform="translate(0, 60)">
+						<text class="clock-reading" text-anchor="middle">06:00</text>
+					</g>
+				</g>
+				<g width="400" height="100" transform="translate(530, -10)">
+					<g class="slider_axis" transform="translate(0,50)">
+						<g class="tick" transform="translate(0,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">05:00</text>
+						</g>
+						<g class="tick" transform="translate(44.44444444444444,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">07:00</text>
+						</g>
+						<g class="tick" transform="translate(88.88888888888889,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">09:00</text>
+						</g>
+						<g class="tick" transform="translate(133.33333333333331,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">11:00</text>
+						</g>
+						<g class="tick" transform="translate(177.77777777777777,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">13:00</text>
+						</g>
+						<g class="tick" transform="translate(222.22222222222223,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">15:00</text>
+						</g>
+						<g class="tick" transform="translate(266.66666666666663,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">17:00</text>
+						</g>
+						<g class="tick" transform="translate(311.11111111111114,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">19:00</text>
+						</g>
+						<g class="tick" transform="translate(355.55555555555554,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">21:00</text>
+						</g>
+						<g class="tick" transform="translate(400,0)" style="opacity: 1;">
+							<line y2="0" x2="0"></line>
+							<text dy=".71em" y="12" x="0" style="text-anchor: middle;">23:00</text>
+						</g>
+						<path class="domain" d="M0,0V0H400V0"></path>
+						<path class="halo" d="M0,0V0H400V0"></path>
+					</g>
+					<g class="slider" style="pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+						<rect class="background" x="0" width="400" height="100" style="visibility: hidden; cursor: crosshair;"></rect>
+						<g class="handle" transform="translate(22.22222222222222,0)">
+							<path transform="translate(0,50)" d="M 0 -10 V 10"></path>
+							<text transform="translate(-22 ,32)">06:00</text>
+						</g>
+					</g>
+				</g>
+				<circle class="entry" id="爱国路" cy="234.81544186046767" cx="573.9008461538382" r="4.024922359499621" style="fill: rgb(0, 124, 101); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="安亭" cy="220.1994418604638" cx="2.908461538470831" r="6.7082039324993685" style="fill: rgb(126, 33, 49); fill-opacity: 0.325;"></circle>
+				<circle class="entry" id="鞍山新村" cy="245.9235348837205" cx="511.0225384615405" r="5.019960159204453" style="fill: rgb(0, 158, 218); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="白银路" cy="125.04725581395549" cx="124.77738461538588" r="5.019960159204453" style="fill: rgb(126, 33, 49); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="宝安公路" cy="84.42083720930258" cx="395.91176923076847" r="7.348469228349534" style="fill: rgb(233, 27, 57); fill-opacity: 0.33;"></circle>
+				<circle class="entry" id="宝山路" cy="282.0424186046531" cx="462.161846153838" r="3.2863353450309964" style="fill: rgb(80, 46, 141); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="宝杨路" cy="41.43683720930436" cx="467.17930769230117" r="4.8373546489791295" style="fill: rgb(250, 209, 7); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="北桥" cy="627.7244651162771" cx="365.5687692307788" r="6.572670690061993" style="fill: rgb(144, 86, 163); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="北新泾" cy="340.4662325581398" cx="312.52076923076874" r="9.09945053286186" style="fill: rgb(138, 197, 63); fill-opacity: 0.346;"></circle>
+				<circle class="entry" id="北洋泾路" cy="302.8688372093032" cx="573.4316923076849" r="2.3237900077244498" style="fill: rgb(214, 24, 112); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="博兴路" cy="262.016372093022" cx="623.6092307692321" r="7.224956747275376" style="fill: rgb(214, 24, 112); fill-opacity: 0.329;"></circle>
+				<circle class="entry" id="曹杨路" cy="305.02716279069836" cx="376.4192307692407" r="7.823042886243178" style="fill: rgb(126, 33, 49); fill-opacity: 0.334;"></circle>
+				<circle class="entry" id="漕宝路" cy="421.863069767439" cx="401.93330769230744" r="6.434283176858164" style="fill: rgb(233, 27, 57); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="漕河泾开发区" cy="417.8093023255816" cx="347.5363076923178" r="4.449719092257397" style="fill: rgb(121, 200, 237); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="漕溪路" cy="407.381023255814" cx="406.87184615383904" r="2.6832815729997477" style="fill: rgb(250, 209, 7); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="昌吉东路" cy="211.6649302325581" cx="59.04469230770326" r="4.024922359499621" style="fill: rgb(126, 33, 49); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="昌平路" cy="311.9006511627899" cx="412.98692307692954" r="4.8373546489791295" style="fill: rgb(243, 113, 33); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="长江南路" cy="147.46437209302354" cx="484.42838461538224" r="6.97137002317335" style="fill: rgb(250, 209, 7); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="长清路" cy="410.97767441860174" cx="476.58723076923195" r="5.531726674375732" style="fill: rgb(243, 113, 33); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="长寿路" cy="301.4556279069765" cx="406.7154615384547" r="5.019960159204453" style="fill: rgb(243, 113, 33); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="常熟路" cy="346.13079069767366" cx="425.1410769230738" r="2.6832815729997477" style="fill: rgb(233, 27, 57); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="场中路" cy="194.95590697674808" cx="370.71192307692843" r="9" style="fill: rgb(243, 113, 33); fill-opacity: 0.345;"></circle>
+				<circle class="entry" id="成山路" cy="417.74902325581166" cx="491.67176923077716" r="10.21763181955584" style="fill: rgb(0, 158, 218); fill-opacity: 0.358;"></circle>
+				<circle class="entry" id="赤峰路" cy="232.3289302325567" cx="471.2409230769221" r="6.572670690061993" style="fill: rgb(250, 209, 7); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="川沙" cy="390.55981395349" cx="786.6087692307659" r="7.823042886243178" style="fill: rgb(138, 197, 63); fill-opacity: 0.334;"></circle>
+				<circle class="entry" id="春申路" cy="538.9719069767448" cx="330.1936923076851" r="2.6832815729997477" style="fill: rgb(144, 86, 163); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="打浦桥" cy="357.8132093023233" cx="451.0278461538473" r="3.2863353450309964" style="fill: rgb(121, 200, 237); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="大柏树" cy="218.64893023255718" cx="472.4160000000023" r="6.572670690061993" style="fill: rgb(250, 209, 7); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="大场镇" cy="212.39330232558055" cx="374.97669230768884" r="4.449719092257397" style="fill: rgb(243, 113, 33); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="大渡河路" cy="315.4102325581415" cx="342.8637692307792" r="3" style="fill: rgb(232, 149, 192); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="大华三路" cy="244.45004651162975" cx="384.51176923076406" r="8.049844718999243" style="fill: rgb(243, 113, 33); fill-opacity: 0.336;"></circle>
+				<circle class="entry" id="大连路" cy="271.2909767441888" cx="515.97715384615" r="6.572670690061993" style="fill: rgb(80, 46, 141); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="大木桥路" cy="378.334883720929" cx="443.1559999999991" r="3.5496478698597698" style="fill: rgb(80, 46, 141); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="大世界" cy="323.21469767441835" cx="466.70869230769006" r="5.531726674375732" style="fill: rgb(0, 158, 218); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="德平路" cy="292.36186046511943" cx="590.8049999999947" r="6.148170459575758" style="fill: rgb(214, 24, 112); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="滴水湖" cy="858.7691162790667" cx="1124.8233846153735" r="1.3416407864998738" style="fill: rgb(141, 209, 191); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="东安路" cy="383.68130232557945" cx="431.0515384615463" r="4.8373546489791295" style="fill: rgb(243, 113, 33); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="东宝兴路" cy="268.10455813953394" cx="467.99484615383676" r="3.5496478698597698" style="fill: rgb(250, 209, 7); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="东昌路" cy="312.6457674418582" cx="519.6470769230707" r="6.148170459575758" style="fill: rgb(138, 197, 63); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="东川路" cy="672.8584186046504" cx="379.80707692306964" r="7.937253933193771" style="fill: rgb(144, 86, 163); fill-opacity: 0.335;"></circle>
+				<circle class="entry" id="东方体育中心" cy="446.34139534883377" cx="468.0576923076904" r="3.2863353450309964" style="fill: rgb(126, 33, 49); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="东靖路" cy="216.447069767444" cx="626.5571538461479" r="5.692099788303081" style="fill: rgb(214, 24, 112); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="东陆路" cy="230.17897674418748" cx="612.5073846153764" r="4.024922359499621" style="fill: rgb(0, 124, 101); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="东明路" cy="414.23609302325326" cx="512.9035384615478" r="4.024922359499621" style="fill: rgb(214, 24, 112); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="洞泾" cy="561.9332093023246" cx="102.98146153847345" r="5.196152422706632" style="fill: rgb(121, 200, 237); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="芳华路" cy="380.1164651162771" cx="570.295230769229" r="6.97137002317335" style="fill: rgb(243, 113, 33); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="丰庄" cy="297.224372093022" cx="285.22215384616203" r="6.97137002317335" style="fill: rgb(232, 149, 192); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="枫桥路" cy="298.4533953488381" cx="367.3883846153902" r="6" style="fill: rgb(126, 33, 49); fill-opacity: 0.32;"></circle>
+				<circle class="entry" id="复兴岛" cy="233.61823255814284" cx="586.4145384615477" r="1.8973665961010275" style="fill: rgb(0, 124, 101); fill-opacity: 0.302;"></circle>
+				<circle class="entry" id="富锦路" cy="46.386418604654985" cx="386.7552307692315" r="8.160882305241264" style="fill: rgb(233, 27, 57); fill-opacity: 0.337;"></circle>
+				<circle class="entry" id="港城路" cy="112.27479069767585" cx="606.1716153846108" r="5.196152422706632" style="fill: rgb(214, 24, 112); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="高科西路" cy="392.1655813953474" cx="511.3353076923094" r="5.196152422706632" style="fill: rgb(243, 113, 33); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="高青路" cy="435.57153488372313" cx="520.1162307692239" r="4.6475800154488995" style="fill: rgb(214, 24, 112); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="共富新村" cy="108.47386046511883" cx="400.4279230769227" r="11.063453348751464" style="fill: rgb(233, 27, 57); fill-opacity: 0.368;"></circle>
+				<circle class="entry" id="共康路" cy="169.11293023255783" cx="419.4966153846152" r="9.197825830053535" style="fill: rgb(233, 27, 57); fill-opacity: 0.347;"></circle>
+				<circle class="entry" id="顾村公园" cy="125.95981395348853" cx="310.8750769230775" r="8.270429251254132" style="fill: rgb(243, 113, 33); fill-opacity: 0.338;"></circle>
+				<circle class="entry" id="光明路" cy="207.36669767442015" cx="-62.57430769229663" r="3.2863353450309964" style="fill: rgb(126, 33, 49); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="广兰路" cy="349.8530232558145" cx="673.8496153846121" r="10.564090116995406" style="fill: rgb(138, 197, 63); fill-opacity: 0.362;"></circle>
+				<circle class="entry" id="桂林路" cy="410.7399069767468" cx="377.2040769230784" r="2.6832815729997477" style="fill: rgb(121, 200, 237); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="国权路" cy="218.925209302329" cx="511.5866923077031" r="3.5496478698597698" style="fill: rgb(188, 168, 209); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="海伦路" cy="269.5713488372111" cx="481.9189230769217" r="6.7082039324993685" style="fill: rgb(80, 46, 141); fill-opacity: 0.325;"></circle>
+				<circle class="entry" id="海天三路" cy="421.14474418604885" cx="930.7763846153808" r="1.3416407864998738" style="fill: rgb(138, 197, 63); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="汉中路" cy="298.6945116279059" cx="436.0543846153894" r="3.794733192202055" style="fill: rgb(233, 27, 57); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="航津路" cy="141.7328372093061" cx="634.2097692307788" r="5.848076606885379" style="fill: rgb(214, 24, 112); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="航头东" cy="611.4189767441864" cx="668.8950000000026" r="5.531726674375732" style="fill: rgb(141, 209, 191); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="航中路" cy="426.8628837209273" cx="285.66061538461736" r="4.024922359499621" style="fill: rgb(188, 168, 209); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="合川路" cy="424.57395348837184" cx="328.5933076923118" r="4.242640687119285" style="fill: rgb(121, 200, 237); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="鹤沙航城" cy="573.009488372092" cx="659.6113076923004" r="7.707139547199077" style="fill: rgb(141, 209, 191); fill-opacity: 0.333;"></circle>
+				<circle class="entry" id="衡山路" cy="361.1268837209316" cx="418.618230769226" r="2.3237900077244498" style="fill: rgb(233, 27, 57); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="虹口足球场" cy="248.90232558139337" cx="466.55961538461565" r="6.572670690061993" style="fill: rgb(250, 209, 7); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="虹桥2号航站楼" cy="377.9882790697668" cx="242.993923076916" r="5.019960159204453" style="fill: rgb(138, 197, 63); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="虹桥火车站" cy="378.5106976744196" cx="236.09400000000858" r="5.692099788303081" style="fill: rgb(138, 197, 63); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="虹桥路" cy="372.49451162790433" cx="381.1867692307679" r="5.531726674375732" style="fill: rgb(250, 209, 7); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="后滩" cy="415.5270697674398" cx="458.52407692307304" r="1.8973665961010275" style="fill: rgb(243, 113, 33); fill-opacity: 0.302;"></circle>
+				<circle class="entry" id="呼兰路" cy="134.49432558140012" cx="405.82246153846614" r="6.7082039324993685" style="fill: rgb(233, 27, 57); fill-opacity: 0.325;"></circle>
+				<circle class="entry" id="花木路" cy="349.630325581393" cx="588.6097692307608" r="3" style="fill: rgb(243, 113, 33); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="花桥" cy="203.06846511628208" cx="-81.26592307690883" r="3.2863353450309964" style="fill: rgb(126, 33, 49); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="华宁路" cy="690.8416744186011" cx="343.8035384615435" r="7.348469228349534" style="fill: rgb(144, 86, 163); fill-opacity: 0.33;"></circle>
+				<circle class="entry" id="华夏东路" cy="374.14716279069853" cx="761.5828461538459" r="4.242640687119285" style="fill: rgb(138, 197, 63); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="华夏西路" cy="452.3592558139553" cx="518.0466923076973" r="2.3237900077244498" style="fill: rgb(214, 24, 112); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="华夏中路" cy="409.01860465116266" cx="618.2775384615422" r="1.3416407864998738" style="fill: rgb(141, 209, 191); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="黄陂南路" cy="330.3996279069798" cx="457.8824615384575" r="4.449719092257397" style="fill: rgb(233, 27, 57); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="黄兴公园" cy="208.15702325581293" cx="545.3935384615377" r="4.449719092257397" style="fill: rgb(0, 158, 218); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="黄兴路" cy="236.5283720930258" cx="538.557923076921" r="6.7082039324993685" style="fill: rgb(0, 158, 218); fill-opacity: 0.325;"></circle>
+				<circle class="entry" id="惠南" cy="613.2658604651174" cx="879.3916153846186" r="10.478549517943787" style="fill: rgb(141, 209, 191); fill-opacity: 0.361;"></circle>
+				<circle class="entry" id="惠南东" cy="659.1951627906967" cx="926.4326923076891" r="5.531726674375732" style="fill: rgb(141, 209, 191); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="嘉定北" cy="47.73934883721188" cx="113.11138461538836" r="9.9498743710662" style="fill: rgb(126, 33, 49); fill-opacity: 0.355;"></circle>
+				<circle class="entry" id="嘉定西" cy="71.78734883720898" cx="99.18730769230335" r="6.148170459575758" style="fill: rgb(126, 33, 49); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="嘉定新城" cy="150.70269767442238" cx="137.76169230768585" r="5.019960159204453" style="fill: rgb(126, 33, 49); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="嘉善路" cy="363.83609302325806" cx="439.61323076922275" r="4.242640687119285" style="fill: rgb(121, 200, 237); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="剑川路" cy="658.9406511627898" cx="374.97669230768884" r="5.531726674375732" style="fill: rgb(144, 86, 163); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="江浦公园" cy="260.39720930232556" cx="531.6258461538371" r="2.3237900077244498" style="fill: rgb(0, 124, 101); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="江浦路" cy="242.976558139533" cx="523.8183076923003" r="6.434283176858164" style="fill: rgb(0, 158, 218); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="江苏路" cy="335.6723720930212" cx="396.03599999999716" r="6.572670690061993" style="fill: rgb(138, 197, 63); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="江湾体育场" cy="196.23851162790865" cx="517.6082307692213" r="3.5496478698597698" style="fill: rgb(188, 168, 209); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="江湾镇" cy="191.69413953488385" cx="475.14469230770084" r="9.09945053286186" style="fill: rgb(250, 209, 7); fill-opacity: 0.346;"></circle>
+				<circle class="entry" id="江杨北路" cy="20.767813953492606" cx="408.91069230768846" r="5.019960159204453" style="fill: rgb(250, 209, 7); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="江月路" cy="562.1793488372056" cx="509.4850000000001" r="7.823042886243178" style="fill: rgb(0, 158, 218); fill-opacity: 0.334;"></circle>
+				<circle class="entry" id="交通大学" cy="364.6967441860471" cx="402.3235384615499" r="4.6475800154488995" style="fill: rgb(126, 33, 49); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="金海路" cy="262.57730232557975" cx="699.7232307692234" r="4.024922359499621" style="fill: rgb(0, 124, 101); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="金京路" cy="234.84725581395307" cx="665.7892307692238" r="7.707139547199077" style="fill: rgb(0, 124, 101); fill-opacity: 0.333;"></circle>
+				<circle class="entry" id="金科路" cy="361.33116279069486" cx="645.9693076923071" r="5.019960159204453" style="fill: rgb(138, 197, 63); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="金平路" cy="684.4370232558119" cx="365.50592307692517" r="8.899438184514795" style="fill: rgb(144, 86, 163); fill-opacity: 0.344;"></circle>
+				<circle class="entry" id="金桥路" cy="272.8883720930262" cx="616.5207692307637" r="7.707139547199077" style="fill: rgb(214, 24, 112); fill-opacity: 0.333;"></circle>
+				<circle class="entry" id="金沙江路" cy="316.33116279070043" cx="368.07823076923927" r="7.58946638440411" style="fill: rgb(232, 149, 192); fill-opacity: 0.332;"></circle>
+				<circle class="entry" id="金沙江西路" cy="299.8046511627887" cx="256.1813846153969" r="3" style="fill: rgb(232, 149, 192); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="金运路" cy="300.1110697674396" cx="233.03646153846336" r="8.899438184514795" style="fill: rgb(232, 149, 192); fill-opacity: 0.344;"></circle>
+				<circle class="entry" id="锦江乐园" cy="465.64744186046227" cx="371.7013846153842" r="8.378544026261364" style="fill: rgb(233, 27, 57); fill-opacity: 0.339;"></circle>
+				<circle class="entry" id="锦绣路" cy="389.33748837209345" cx="555.6184615384619" r="6.434283176858164" style="fill: rgb(243, 113, 33); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="静安寺" cy="327.9599999999997" cx="420.84269230769985" r="5.692099788303081" style="fill: rgb(138, 197, 63); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="九亭" cy="473.7080930232524" cx="233.06715384616126" r="8.797726979169108" style="fill: rgb(121, 200, 237); fill-opacity: 0.343;"></circle>
+				<circle class="entry" id="巨峰路" cy="233.21134883721078" cx="626.055846153839" r="7.348469228349534" style="fill: rgb(214, 24, 112); fill-opacity: 0.33;"></circle>
+				<circle class="entry" id="岚皋路" cy="274.4238139534873" cx="382.75500000000625" r="5.848076606885379" style="fill: rgb(243, 113, 33); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="蓝村路" cy="348.89358139535057" cx="537.4909999999916" r="6.841052550594828" style="fill: rgb(214, 24, 112); fill-opacity: 0.326;"></circle>
+				<circle class="entry" id="老西门" cy="337.1475348837184" cx="473.45076923077596" r="6.97137002317335" style="fill: rgb(188, 168, 209); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="李子园路" cy="252.87237209302145" cx="336.08953846153753" r="7.937253933193771" style="fill: rgb(126, 33, 49); fill-opacity: 0.335;"></circle>
+				<circle class="entry" id="莲花路" cy="484.3456744186023" cx="355.33069230769235" r="12.513992168768526" style="fill: rgb(233, 27, 57); fill-opacity: 0.387;"></circle>
+				<circle class="entry" id="联航路" cy="580.0571162790678" cx="512.4022307692387" r="6.29285308902091" style="fill: rgb(0, 158, 218); fill-opacity: 0.322;"></circle>
+				<circle class="entry" id="临港大道" cy="831.5213023255757" cx="1097.4765384615332" r="3.5496478698597698" style="fill: rgb(141, 209, 191); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="临平路" cy="266.37823255814266" cx="497.9125384615333" r="5.692099788303081" style="fill: rgb(80, 46, 141); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="临沂新村" cy="379.6861395348855" cx="521.3716923076935" r="4.242640687119285" style="fill: rgb(214, 24, 112); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="灵岩南路" cy="454.3886511627907" cx="489.9471538461543" r="5.692099788303081" style="fill: rgb(214, 24, 112); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="凌空路" cy="380.35423255813805" cx="823.9919999999903" r="4.449719092257397" style="fill: rgb(138, 197, 63); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="凌兆新村" cy="466.697302325581" cx="481.88823076922387" r="9.295160030897799" style="fill: rgb(0, 158, 218); fill-opacity: 0.348;"></circle>
+				<circle class="entry" id="刘行" cy="104.72818604651268" cx="295.9469230769167" r="8.378544026261364" style="fill: rgb(243, 113, 33); fill-opacity: 0.339;"></circle>
+				<circle class="entry" id="龙柏新村" cy="407.43460465116436" cx="307.864307692308" r="5.692099788303081" style="fill: rgb(188, 168, 209); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="龙漕路" cy="419.52390697674605" cx="415.6834615384723" r="7.469939758793239" style="fill: rgb(250, 209, 7); fill-opacity: 0.331;"></circle>
+				<circle class="entry" id="龙华" cy="414.24446511627923" cx="428.1664615384633" r="3.2863353450309964" style="fill: rgb(126, 33, 49); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="龙华中路" cy="393.27237209302336" cx="434.81499999999767" r="3.5496478698597698" style="fill: rgb(243, 113, 33); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="龙溪路" cy="377.95813953488187" cx="321.6626923076857" r="3.794733192202055" style="fill: rgb(188, 168, 209); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="龙阳路" cy="363.35888372092984" cx="580.7700769230684" r="8.59069263796581" style="fill: rgb(138, 197, 63); fill-opacity: 0.341;"></circle>
+				<circle class="entry" id="龙耀路" cy="435.82604651162995" cx="438.0128461538494" r="3" style="fill: rgb(126, 33, 49); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="隆昌路" cy="242.55460465116144" cx="562.32984615385" r="3.5496478698597698" style="fill: rgb(0, 124, 101); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="隆德路" cy="317.49990697674673" cx="385.38869230769546" r="3.5496478698597698" style="fill: rgb(232, 149, 192); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="娄山关路" cy="349.71572093023474" cx="356.7089230769327" r="6.97137002317335" style="fill: rgb(138, 197, 63); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="芦恒路" cy="504.21934883720814" cx="493.6799230769286" r="10.21763181955584" style="fill: rgb(0, 158, 218); fill-opacity: 0.358;"></circle>
+				<circle class="entry" id="鲁班路" cy="369.7283720930207" cx="460.65646153845324" r="4.6475800154488995" style="fill: rgb(80, 46, 141); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="陆家浜路" cy="348.7160930232536" cx="476.61938461538773" r="6.29285308902091" style="fill: rgb(121, 200, 237); fill-opacity: 0.322;"></circle>
+				<circle class="entry" id="陆家嘴" cy="304.3356279069745" cx="500.21884615385443" r="7.0992957397195395" style="fill: rgb(138, 197, 63); fill-opacity: 0.328;"></circle>
+				<circle class="entry" id="罗南新村" cy="52.21004651162774" cx="288.7970769230733" r="6.97137002317335" style="fill: rgb(243, 113, 33); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="罗山路" cy="446.5255813953503" cx="633.017153846163" r="4.8373546489791295" style="fill: rgb(126, 33, 49); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="马当路" cy="352.5270697674428" cx="463.6979230769206" r="4.449719092257397" style="fill: rgb(121, 200, 237); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="马陆" cy="168.1350697674417" cx="170.81584615385916" r="4.242640687119285" style="fill: rgb(126, 33, 49); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="美兰湖" cy="30.37395348837603" cx="277.38100000001174" r="6.572670690061993" style="fill: rgb(243, 113, 33); fill-opacity: 0.324;"></circle>
+				<circle class="entry" id="民生路" cy="308.3374883720939" cx="560.5730769230714" r="3.794733192202055" style="fill: rgb(214, 24, 112); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="闵行开发区" cy="702.2980465116284" cx="306.42176923077693" r="5.848076606885379" style="fill: rgb(144, 86, 163); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="南陈路" cy="165.11944186046432" cx="349.26092307691977" r="6.29285308902091" style="fill: rgb(243, 113, 33); fill-opacity: 0.322;"></circle>
+				<circle class="entry" id="南京东路" cy="305.3804651162801" cx="474.75300000000055" r="6.434283176858164" style="fill: rgb(138, 197, 63); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="南京西路" cy="318.34381395348987" cx="438.3738461538519" r="5.196152422706632" style="fill: rgb(138, 197, 63); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="南浦大桥" cy="354.240000000001" cx="496.5328461538559" r="4.8373546489791295" style="fill: rgb(80, 46, 141); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="南翔" cy="205.89320930232932" cx="238.5566923076933" r="8.899438184514795" style="fill: rgb(126, 33, 49); fill-opacity: 0.344;"></circle>
+				<circle class="entry" id="嫩江路" cy="176.23088372092988" cx="543.5125384615304" r="7.58946638440411" style="fill: rgb(0, 158, 218); fill-opacity: 0.332;"></circle>
+				<circle class="entry" id="宁国路" cy="253.5789767441848" cx="544.2023846153795" r="3.2863353450309964" style="fill: rgb(0, 124, 101); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="潘广路" cy="93.55981395348994" cx="286.2876153846128" r="5.692099788303081" style="fill: rgb(243, 113, 33); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="彭浦新村" cy="189.98623255813885" cx="421.75323076922405" r="11.618950038622252" style="fill: rgb(233, 27, 57); fill-opacity: 0.375;"></circle>
+				<circle class="entry" id="浦电路" cy="334.6359069767475" cx="539.4348461538524" r="4.242640687119285" style="fill: rgb(214, 24, 112); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="浦东大道" cy="301.3317209302358" cx="525.1979999999985" r="6.434283176858164" style="fill: rgb(80, 46, 141); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="浦东国际机场" cy="451.1536744186045" cx="944.5119230769258" r="3" style="fill: rgb(138, 197, 63); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="浦江镇" cy="541.6258604651146" cx="506.22430769231545" r="6.148170459575758" style="fill: rgb(0, 158, 218); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="浦三路" cy="450.6463255813972" cx="553.9873846153907" r="4.449719092257397" style="fill: rgb(126, 33, 49); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="七宝" cy="443.45134883720937" cx="276.66046153846474" r="10.564090116995406" style="fill: rgb(121, 200, 237); fill-opacity: 0.362;"></circle>
+				<circle class="entry" id="祁华路" cy="163.5237209302333" cx="311.8791538461532" r="3.2863353450309964" style="fill: rgb(243, 113, 33); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="祁连山路" cy="248.51218604651314" cx="315.7668461538541" r="5.196152422706632" style="fill: rgb(126, 33, 49); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="祁连山南路" cy="305.57972093023017" cx="302.784000000012" r="4.8373546489791295" style="fill: rgb(232, 149, 192); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="曲阜路" cy="297.5927441860491" cx="455.3247692307635" r="3.794733192202055" style="fill: rgb(0, 124, 101); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="曲阳路" cy="240.27404651162607" cx="483.92561538461547" r="5.848076606885379" style="fill: rgb(0, 158, 218); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="人民广场" cy="310.44893023255815" cx="459.6363076922996" r="7.0992957397195395" style="fill: rgb(138, 197, 63); fill-opacity: 0.328;"></circle>
+				<circle class="entry" id="三林" cy="463.5611162790698" cx="513.9704615384563" r="5.366563145999495" style="fill: rgb(126, 33, 49); fill-opacity: 0.316;"></circle>
+				<circle class="entry" id="三林东" cy="458.08744186046596" cx="530.5910769230842" r="5.196152422706632" style="fill: rgb(126, 33, 49); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="三门路" cy="178.78604651163076" cx="509.1254615384555" r="2.6832815729997477" style="fill: rgb(188, 168, 209); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="陕西南路" cy="339.4933953488368" cx="438.43815384616335" r="7.707139547199077" style="fill: rgb(233, 27, 57); fill-opacity: 0.333;"></circle>
+				<circle class="entry" id="商城路" cy="317.8063255813976" cx="520.7753846153752" r="3.794733192202055" style="fill: rgb(121, 200, 237); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="上大路" cy="175.924465116279" cx="363.43638461537785" r="3.794733192202055" style="fill: rgb(243, 113, 33); fill-opacity: 0.308;"></circle>
+				<circle class="entry" id="上海大学站" cy="166.59293023256106" cx="334.58415384615284" r="5.196152422706632" style="fill: rgb(243, 113, 33); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="上海动物园" cy="384.96558139534636" cx="304.6021538461655" r="4.449719092257397" style="fill: rgb(188, 168, 209); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="上海儿童医学中心" cy="362.9670697674431" cx="531.2195384615375" r="3" style="fill: rgb(214, 24, 112); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="上海火车站" cy="289.1101395348815" cx="432.2909230769172" r="9.09945053286186" style="fill: rgb(233, 27, 57); fill-opacity: 0.346;"></circle>
+				<circle class="entry" id="上海科技馆" cy="336.94827906976826" cx="561.6867692307766" r="3" style="fill: rgb(138, 197, 63); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="上海马戏城" cy="234.68818604651426" cx="426.52076923077203" r="5.692099788303081" style="fill: rgb(233, 27, 57); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="上海南站" cy="446.641116279071" cx="396.1456153846266" r="7.224956747275376" style="fill: rgb(233, 27, 57); fill-opacity: 0.329;"></circle>
+				<circle class="entry" id="上海汽车城" cy="225.480558139537" cx="30.379538461539774" r="2.6832815729997477" style="fill: rgb(126, 33, 49); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="上海赛车场" cy="147.5715348837243" cx="96.61500000000999" r="1.8973665961010275" style="fill: rgb(126, 33, 49); fill-opacity: 0.302;"></circle>
+				<circle class="entry" id="上海体育场" cy="392.5339534883746" cx="414.366615384607" r="3.5496478698597698" style="fill: rgb(80, 46, 141); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="上海体育馆" cy="397.08334883720664" cx="405.4600000000059" r="6.434283176858164" style="fill: rgb(80, 46, 141); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="上海图书馆" cy="355.338418604651" cx="415.99769230769897" r="1.3416407864998738" style="fill: rgb(188, 168, 209); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="上海西站" cy="263.3759999999984" cx="352.14600000000274" r="8.049844718999243" style="fill: rgb(126, 33, 49); fill-opacity: 0.336;"></circle>
+				<circle class="entry" id="上海野生动物园" cy="619.4210232558128" cx="788.3187692307686" r="1.3416407864998738" style="fill: rgb(141, 209, 191); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="上海游泳馆" cy="403.238511627908" cx="411.230153846151" r="2.3237900077244498" style="fill: rgb(126, 33, 49); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="上南路" cy="453.7121860465122" cx="506.0664615384525" r="4.242640687119285" style="fill: rgb(214, 24, 112); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="佘山" cy="529.07441860465" cx="101.79030769231538" r="9.486832980505138" style="fill: rgb(121, 200, 237); fill-opacity: 0.35;"></circle>
+				<circle class="entry" id="申江路" cy="234.07869767441935" cx="682.3177692307786" r="2.6832815729997477" style="fill: rgb(0, 124, 101); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="沈杜公路" cy="600.4615813953465" cx="514.8488461538457" r="9.581231653602787" style="fill: rgb(0, 158, 218); fill-opacity: 0.351;"></circle>
+				<circle class="entry" id="石龙路" cy="438.89190697674496" cx="413.86530769231877" r="5.848076606885379" style="fill: rgb(250, 209, 7); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="世纪大道" cy="320.32632558139437" cx="536.7076153846117" r="7.469939758793239" style="fill: rgb(121, 200, 237); fill-opacity: 0.331;"></circle>
+				<circle class="entry" id="世纪公园" cy="352.5890232558132" cx="571.3139230769248" r="5.019960159204453" style="fill: rgb(138, 197, 63); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="市光路" cy="163.03311627907186" cx="543.5125384615304" r="9.85900603509299" style="fill: rgb(0, 158, 218); fill-opacity: 0.354;"></circle>
+				<circle class="entry" id="书院" cy="771.7981395348825" cx="1009.1630769230798" r="7.937253933193771" style="fill: rgb(141, 209, 191); fill-opacity: 0.335;"></circle>
+				<circle class="entry" id="水产路" cy="64.99255813953967" cx="479.66084615385506" r="5.196152422706632" style="fill: rgb(250, 209, 7); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="水城路" cy="369.72167441860717" cx="339.8530000000098" r="5.692099788303081" style="fill: rgb(188, 168, 209); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="四川北路" cy="281.23534883720845" cx="473.95353846154273" r="4.449719092257397" style="fill: rgb(188, 168, 209); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="四平路" cy="243.06027906976834" cx="499.16800000000285" r="6.148170459575758" style="fill: rgb(188, 168, 209); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="泗泾" cy="505.3880930232544" cx="146.51046153846545" r="8.899438184514795" style="fill: rgb(121, 200, 237); fill-opacity: 0.344;"></circle>
+				<circle class="entry" id="松江大学城" cy="612.8958139534839" cx="106.18076923078306" r="7.58946638440411" style="fill: rgb(121, 200, 237); fill-opacity: 0.332;"></circle>
+				<circle class="entry" id="松江南站" cy="728.7923720930194" cx="103.60846153846892" r="3.5496478698597698" style="fill: rgb(121, 200, 237); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="松江体育中心" cy="677.176744186047" cx="103.10715384615996" r="8.270429251254132" style="fill: rgb(121, 200, 237); fill-opacity: 0.338;"></circle>
+				<circle class="entry" id="松江新城" cy="652.5443720930207" cx="103.41992307692877" r="6.434283176858164" style="fill: rgb(121, 200, 237); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="淞浜路" cy="82.41655813953902" cx="486.3722307692223" r="7.0992957397195395" style="fill: rgb(250, 209, 7); fill-opacity: 0.328;"></circle>
+				<circle class="entry" id="淞发路" cy="125.61488372093274" cx="497.53692307693166" r="4.8373546489791295" style="fill: rgb(250, 209, 7); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="淞虹路" cy="337.88595348837305" cx="291.69823076923416" r="12.296340919151517" style="fill: rgb(138, 197, 63); fill-opacity: 0.384;"></circle>
+				<circle class="entry" id="宋园路" cy="374.88390697674686" cx="368.70523076923473" r="4.8373546489791295" style="fill: rgb(188, 168, 209); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="唐镇" cy="346.0286511627921" cx="725.737153846162" r="3" style="fill: rgb(138, 197, 63); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="塘桥" cy="351.96613953488514" cx="524.1310769230691" r="6" style="fill: rgb(80, 46, 141); fill-opacity: 0.32;"></circle>
+				<circle class="entry" id="桃浦新村" cy="231.6842790697696" cx="277.1924615384716" r="10.12916580968048" style="fill: rgb(126, 33, 49); fill-opacity: 0.357;"></circle>
+				<circle class="entry" id="提篮桥" cy="278.91627906976817" cx="506.88200000000876" r="1.8973665961010275" style="fill: rgb(0, 124, 101); fill-opacity: 0.302;"></circle>
+				<circle class="entry" id="天潼路" cy="295.11962790697726" cx="471.69546153845533" r="3.5496478698597698" style="fill: rgb(188, 168, 209); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="铁力路" cy="20.215255813954798" cx="440.0838461538546" r="2.6832815729997477" style="fill: rgb(250, 209, 7); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="通河新村" cy="148.73358139535102" cx="411.3426923076961" r="13.213629327327142" style="fill: rgb(233, 27, 57); fill-opacity: 0.397;"></circle>
+				<circle class="entry" id="同济大学" cy="230.90065116279044" cx="506.1614615384618" r="3.5496478698597698" style="fill: rgb(188, 168, 209); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="外高桥保税区北" cy="120.9884651162789" cx="623.9220000000008" r="4.6475800154488995" style="fill: rgb(214, 24, 112); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="外高桥保税区南" cy="164.7510697674431" cx="645.9386153846092" r="4.449719092257397" style="fill: rgb(214, 24, 112); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="外环路" cy="501.56874418604514" cx="340.7796153846118" r="5.366563145999495" style="fill: rgb(233, 27, 57); fill-opacity: 0.316;"></circle>
+				<circle class="entry" id="威宁路" cy="343.47683720930394" cx="332.12146153846805" r="5.531726674375732" style="fill: rgb(138, 197, 63); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="文井路" cy="697.2479999999966" cx="322.7924615384688" r="1.3416407864998738" style="fill: rgb(144, 86, 163); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="汶水路" cy="213.31758139535222" cx="424.01130769231156" r="3" style="fill: rgb(233, 27, 57); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="五角场" cy="204.22046511628253" cx="518.2352307692375" r="4.8373546489791295" style="fill: rgb(188, 168, 209); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="五莲路" cy="247.82902325581512" cx="625.3031538461569" r="7.224956747275376" style="fill: rgb(214, 24, 112); fill-opacity: 0.329;"></circle>
+				<circle class="entry" id="五洲大道" cy="196.61358139534943" cx="627.246999999997" r="4.242640687119285" style="fill: rgb(214, 24, 112); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="武宁路" cy="310.98641860465045" cx="395.5507692307661" r="2.6832815729997477" style="fill: rgb(232, 149, 192); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="武威路" cy="239.97432558139474" cx="299.0205384615398" r="2.6832815729997477" style="fill: rgb(126, 33, 49); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="西藏北路" cy="262.0783255813983" cx="451.1856923076895" r="7.224956747275376" style="fill: rgb(0, 158, 218); fill-opacity: 0.329;"></circle>
+				<circle class="entry" id="西藏南路" cy="365.180651162789" cx="481.6046923076951" r="6.434283176858164" style="fill: rgb(80, 46, 141); fill-opacity: 0.323;"></circle>
+				<circle class="entry" id="翔殷路" cy="192.74567441860893" cx="543.8253076922992" r="4.6475800154488995" style="fill: rgb(0, 158, 218); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="小南门" cy="340.29711627906863" cx="494.4954615384643" r="5.531726674375732" style="fill: rgb(121, 200, 237); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="莘庄" cy="517.0068837209272" cx="329.37815384614953" r="10.816653826391967" style="fill: rgb(233, 27, 57); fill-opacity: 0.365;"></circle>
+				<circle class="entry" id="新场" cy="627.1166511627885" cx="714.6820769230821" r="9.674709297958259" style="fill: rgb(141, 209, 191); fill-opacity: 0.352;"></circle>
+				<circle class="entry" id="新村路" cy="261.2796279069796" cx="383.8833076923107" r="7.58946638440411" style="fill: rgb(243, 113, 33); fill-opacity: 0.332;"></circle>
+				<circle class="entry" id="新江湾城" cy="153.15739534883608" cx="506.88200000000876" r="2.6832815729997477" style="fill: rgb(188, 168, 209); fill-opacity: 0.304;"></circle>
+				<circle class="entry" id="新天地" cy="341.2029767441881" cx="460.9063846153892" r="4.024922359499621" style="fill: rgb(188, 168, 209); fill-opacity: 0.309;"></circle>
+				<circle class="entry" id="新闸路" cy="304.10120930232625" cx="450.3555384615339" r="6.148170459575758" style="fill: rgb(233, 27, 57); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="星中路" cy="438.654139534884" cx="305.6369230769184" r="4.8373546489791295" style="fill: rgb(121, 200, 237); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="行知路" cy="226.27255813953613" cx="382.00230769230353" r="6.97137002317335" style="fill: rgb(243, 113, 33); fill-opacity: 0.327;"></circle>
+				<circle class="entry" id="徐家汇" cy="378.8338604651164" cx="403.8289230769346" r="5.848076606885379" style="fill: rgb(233, 27, 57); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="徐泾东" cy="387.8857674418616" cx="203.72969230770514" r="10.816653826391967" style="fill: rgb(138, 197, 63); fill-opacity: 0.365;"></circle>
+				<circle class="entry" id="延安西路" cy="352.21227906976605" cx="375.6986923076937" r="6.148170459575758" style="fill: rgb(250, 209, 7); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="延长路" cy="248.20074418604906" cx="431.66392307692166" r="7.58946638440411" style="fill: rgb(233, 27, 57); fill-opacity: 0.332;"></circle>
+				<circle class="entry" id="延吉中路" cy="220.1307906976739" cx="548.1543846153919" r="8.694826047713663" style="fill: rgb(0, 158, 218); fill-opacity: 0.342;"></circle>
+				<circle class="entry" id="杨高北路" cy="234.35497674418525" cx="647.4439999999939" r="5.692099788303081" style="fill: rgb(0, 124, 101); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="杨高南路" cy="389.21525581395315" cx="533.6646923076864" r="5.196152422706632" style="fill: rgb(243, 113, 33); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="杨高中路" cy="322.41432558139326" cx="568.1935384615466" r="5.196152422706632" style="fill: rgb(121, 200, 237); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="杨树浦路" cy="281.42790697674496" cx="521.998692307689" r="8.899438184514795" style="fill: rgb(80, 46, 141); fill-opacity: 0.344;"></circle>
+				<circle class="entry" id="杨思" cy="433.85860465116497" cx="487.65838461538976" r="7.0992957397195395" style="fill: rgb(0, 158, 218); fill-opacity: 0.328;"></circle>
+				<circle class="entry" id="耀华路" cy="404.4675348837182" cx="489.1637692307745" r="5.692099788303081" style="fill: rgb(0, 158, 218); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="宜山路" cy="390.69041860465023" cx="390.5318461538451" r="5.196152422706632" style="fill: rgb(250, 209, 7); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="殷高东路" cy="164.4513488372118" cx="506.88200000000876" r="1.3416407864998738" style="fill: rgb(188, 168, 209); fill-opacity: 0.301;"></circle>
+				<circle class="entry" id="殷高西路" cy="167.65953488371977" cx="474.76907692307844" r="7.937253933193771" style="fill: rgb(250, 209, 7); fill-opacity: 0.335;"></circle>
+				<circle class="entry" id="银都路" cy="553.6180465116277" cx="336.6536923077001" r="2.3237900077244498" style="fill: rgb(144, 86, 163); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="邮电新村" cy="253.80837209302584" cx="488.63030769230977" r="4.8373546489791295" style="fill: rgb(188, 168, 209); fill-opacity: 0.313;"></circle>
+				<circle class="entry" id="友谊路" cy="26.839255813958623" cx="461.65907692307115" r="5.531726674375732" style="fill: rgb(250, 209, 7); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="友谊西路" cy="64.78827906977047" cx="391.5213076923008" r="5.531726674375732" style="fill: rgb(233, 27, 57); fill-opacity: 0.317;"></circle>
+				<circle class="entry" id="御桥" cy="438.5319069767437" cx="600.5900000000058" r="6.148170459575758" style="fill: rgb(126, 33, 49); fill-opacity: 0.321;"></circle>
+				<circle class="entry" id="豫园" cy="322.39925581395374" cx="478.71961538461215" r="4.6475800154488995" style="fill: rgb(188, 168, 209); fill-opacity: 0.312;"></circle>
+				<circle class="entry" id="源深体育中心" cy="313.18995348837007" cx="547.5273846153757" r="3.2863353450309964" style="fill: rgb(214, 24, 112); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="远东大道" cy="369.44372093023486" cx="870.0611538461615" r="3.5496478698597698" style="fill: rgb(138, 197, 63); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="云山路" cy="284.0081860465117" cx="603.2236923076949" r="7.224956747275376" style="fill: rgb(214, 24, 112); fill-opacity: 0.329;"></circle>
+				<circle class="entry" id="云台路" cy="398.1901395348826" cx="497.53692307693166" r="3.5496478698597698" style="fill: rgb(243, 113, 33); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="张华浜" cy="104.19739534883995" cx="495.090307692304" r="2.3237900077244498" style="fill: rgb(250, 209, 7); fill-opacity: 0.303;"></circle>
+				<circle class="entry" id="张江高科" cy="365.2961860465097" cx="625.0678461538411" r="5.019960159204453" style="fill: rgb(138, 197, 63); fill-opacity: 0.314;"></circle>
+				<circle class="entry" id="兆丰路" cy="219.3404651162811" cx="-14.089230769216503" r="4.449719092257397" style="fill: rgb(126, 33, 49); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="肇嘉浜路" cy="369.79032558139704" cx="424.1516153846181" r="4.242640687119285" style="fill: rgb(243, 113, 33); fill-opacity: 0.31;"></circle>
+				<circle class="entry" id="真北路" cy="314.61153488372275" cx="324.6106153846223" r="3" style="fill: rgb(232, 149, 192); fill-opacity: 0.305;"></circle>
+				<circle class="entry" id="真如" cy="283.5242790697697" cx="361.36684615385127" r="5.196152422706632" style="fill: rgb(126, 33, 49); fill-opacity: 0.315;"></circle>
+				<circle class="entry" id="镇坪路" cy="290.27386046511464" cx="397.05615384615083" r="8.694826047713663" style="fill: rgb(243, 113, 33); fill-opacity: 0.342;"></circle>
+				<circle class="entry" id="中春路" cy="453.10604651163004" cx="259.78700000000606" r="5.366563145999495" style="fill: rgb(121, 200, 237); fill-opacity: 0.316;"></circle>
+				<circle class="entry" id="中山北路" cy="269.943069767445" cx="437.3083846153803" r="5.692099788303081" style="fill: rgb(233, 27, 57); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="中山公园" cy="338.1304186046535" cx="373.70661538462" r="8.378544026261364" style="fill: rgb(138, 197, 63); fill-opacity: 0.339;"></circle>
+				<circle class="entry" id="中潭路" cy="277.004093023254" cx="410.728846153842" r="5.692099788303081" style="fill: rgb(80, 46, 141); fill-opacity: 0.318;"></circle>
+				<circle class="entry" id="中兴路" cy="279.7149767441868" cx="451.78053846152926" r="4.449719092257397" style="fill: rgb(0, 158, 218); fill-opacity: 0.311;"></circle>
+				<circle class="entry" id="周浦东" cy="519.0446511627886" cx="653.2769999999927" r="5.848076606885379" style="fill: rgb(141, 209, 191); fill-opacity: 0.319;"></circle>
+				<circle class="entry" id="洲海路" cy="180.52744186046743" cx="627.6226153846194" r="3.5496478698597698" style="fill: rgb(214, 24, 112); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="颛桥" cy="591.0982325581372" cx="353.46284615384735" r="3.5496478698597698" style="fill: rgb(144, 86, 163); fill-opacity: 0.307;"></circle>
+				<circle class="entry" id="紫藤路" cy="419.3614883720944" cx="298.7063076923131" r="3.2863353450309964" style="fill: rgb(188, 168, 209); fill-opacity: 0.306;"></circle>
+				<circle class="entry" id="醉白池" cy="701.4424186046466" cx="101.28753846154858" r="7.469939758793239" style="fill: rgb(121, 200, 237); fill-opacity: 0.331;"></circle>
+			</g>
+		</svg>
+	</div>
+	<script>
+		var LINE_COLOR = {
+			"1": "#e91b39", "2": "#8ac53f", "3": "#fad107", "4": "#502e8d", "5": "#9056a3", "6": "#d61870", "7": "#f37121", "8": "#009eda", "9": "#79c8ed", "10": "#bca8d1", "11": "#7e2131", "12": "#007c65", "13": "#e895c0", "16": "#8dd1bf"
+		};
+
+		var connections;
+
+		var stations;
+
+		var entries;
+
+		var margin = { top: 0, right: 30, left: 20, bottom: 30 };
+		var width = 1000 - margin.left - margin.right;
+		var height = 750 - margin.top - margin.bottom;
+
+		var barHeight = 20;
+
+		var chart = d3.select("#metro_by_entry")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var barArea;
+
+		var clockGroup;
+
+		// create scaler functions for drawing the circles
+		var x = d3.scale.linear().domain([121.16, 121.81]).range([0, width]);
+		var y = d3.scale.linear().domain([30.99, 31.42]).range([height, 0]);
+		var r = d3.scale.sqrt().domain([0, 500]).range([0, 30]);
+		var opacity_scaler = d3.scale.linear().domain([0, 500]).range([0.3, 0.8]);
+
+		// create scaler functions for drawing the ranking bars
+		var rankingY = d3.scale.ordinal().rangeRoundBands([0, 200], .1);
+		var rankingX = d3.scale.linear().range([0, 200]);
+
+		// var xAxis = d3.svg.axis()
+		// 			.scale(x)
+		// 			.orient("bottom");
+		// var yAxis = d3.svg.axis()
+		// 			.scale(y)
+		// 			.orient("left");
+
+		// create scaler functions for drawing the analog clock
+		pi = Math.PI;
+		scaleMins = d3.scale.linear().domain([0, 59 + 59 / 60]).range([0, 2 * pi]);
+		scaleHours = d3.scale.linear().domain([0, 11 + 59 / 60]).range([0, 2 * pi]);
+
+		var intervalId;
+
+		// animate every 1000 ms
+		var ANIMATION_INTERVAL = 1000;
+
+		// initialize the tempo to start from 6:00am
+		var minutes = 72;
+
+		var END_MINUTES = 23 * 60;
+
+		var INTERACTION_START_MINUTES = 96;
+
+		function format_minutes(min) {
+			var hour = Math.floor(min * 5 / 60);
+			var minute = Math.round(min * 5 % 60);
+			if (hour < 10) hour = '0' + hour;
+			if (minute < 10) minute = '0' + minute;
+			return hour + ":" + minute;
+		}
+
+		function minutes_2_object(min) {
+			var hour = min * 5 / 60;
+			var minute = Math.round(min * 5 % 60);
+			return [{ "unit": "minutes", "numeric": minute },
+			{ "unit": "hours", "numeric": hour }
+			];
+		}
+
+		// start loading data files
+		d3.json("connections_by_station_name.json", function (error, json) {
+			if (error) return console.warn(error);
+			connections = json;
+
+			d3.json("stations_by_name_with_alias.json", function (error, json) {
+				if (error) return console.warn(error);
+				stations = json;
+				visualize_base_graph();
+
+				d3.json("every5minute_entry0401_list.json", function (error, json) {
+					if (error) return console.warn(error);
+					entries = json;
+					// startAnimation();
+					enableInteraction();
+					// $("#play_flow").bootstrapToggle("enable");
+				});
+			});
+		});
+
+		// $("#play_flow").change(function(){
+		// 	if ($(this).prop("checked") == true){
+		// 		stopAnimation();
+		// 	}
+		// 	else{
+		// 		startAnimation();
+		// 	}
+		// });
+
+		function startAnimation() {
+			intervalId = setInterval(update, ANIMATION_INTERVAL);
+		}
+
+		function visualize_base_graph() {
+
+			chart.selectAll("line.route")
+				.data(connections)
+				.enter()
+				.append("svg:line")
+				.attr("class", "route")
+				.attr("stroke-width", 3)
+				.attr("id", function (d) { return d[0] + "-" + d[1]; })
+				.attr("stroke", function (d) { return LINE_COLOR[d[2]]; })
+				.attr("stroke-linecap", "round")
+				.attr("x1", function (d) { return x(parseFloat(stations[d[0]]['LNG'])); })
+				.attr("y1", function (d) { return y(parseFloat(stations[d[0]]['LAT'])); })
+				.attr("x2", function (d) { return x(parseFloat(stations[d[1]]['LNG'])); })
+				.attr("y2", function (d) { return y(parseFloat(stations[d[1]]['LAT'])); });
+
+
+			chart.selectAll("circle.station")
+				.data(Object.keys(stations))
+				.enter()
+				.append("svg:circle")
+				.attr("class", "station")
+				.attr("id", function (d) { return d; })
+				.attr("cx", function (d) { return x(parseFloat(stations[d]['LNG'])); })
+				.attr("cy", function (d) { return y(parseFloat(stations[d]['LAT'])); })
+				.attr("r", 2)
+				.style("stroke", "grey")
+				.style("fill", "#ffffff");
+
+			var line_no = Object.keys(LINE_COLOR).sort(function (a, b) {
+				return parseInt(a) - parseInt(b);
+			});
+
+			var legendEnter = chart.append("g")
+				.attr("transform", "translate(40, " + (height - 450) + ")")
+				.selectAll("g")
+				.data(line_no)
+				.enter()
+				.append("g")
+				.attr("class", "line_no")
+				.attr("transform", function (d, i) {
+					return "translate(0 ," + 28 * i + ")";
+				});
+
+			legendEnter.append("circle")
+				.attr("r", 10)
+				.style("fill", function (d) { return LINE_COLOR[d]; });
+
+			legendEnter.append("text")
+				.attr("text-anchor", "middle")
+				.attr("dy", "0.35em")
+				.text(function (d) { return d; })
+				.style("fill", "white");
+
+			var circleLegend = chart.append("g")
+				.attr("class", "legend")
+				.attr("transform", "translate(" + (width - 150) + "," + (height - 220) + ")")
+				.selectAll("g")
+				.data([100, 400, 1000])
+				.enter().append("g");
+
+			circleLegend.append("text")
+				.attr("y", 10)
+				.text("人次/5分钟")
+
+			circleLegend.append("circle")
+				.attr("cy", function (d) { return -r(d); })
+				.attr("r", r);
+
+			circleLegend.append("text")
+				.attr("y", function (d) { return -2 * r(d); })
+				.attr("dy", "1.3em")
+				.text(function (d) { return d; });
+
+			chart.append("g")
+				.attr("transform", "translate(" + (width - 250) + ", " + height + ")")
+				.append("text")
+				.attr("class", "data-source")
+				.text("数据源: 上海地铁2015年4月1日一卡通刷卡数据");
+
+
+			barArea = chart.append("g")
+				.attr("width", 200)
+				.attr("height", 200)
+				.attr("transform", "translate(" + (width - 200) + ", " + 110 + ")");
+
+			barArea.append("text")
+				.attr("class", "lengend-header")
+				.attr("x", "-40")
+				.attr("y", "-20")
+				.attr("dy", ".35em")
+				.text("流量TOP10站点排行(人次/5分钟)");
+
+			//Create a digital clock
+			clockGroup = chart.append("g")
+				.attr("width", 200)
+				.attr("height", 200)
+				.attr("transform", "translate(" + width / 5 + ", 50)");
+
+			clockGroup.append("svg:circle")
+				.attr("r", 40).attr("fill", "none")
+				.attr("class", "clock outercircle")
+				.attr("stroke", "black")
+				.attr("stroke-width", 1);
+
+			clockGroup.append("svg:circle")
+				.attr("r", 3)
+				.attr("fill", "black")
+				.attr("class", "clock innercircle");
+
+			clockGroup.selectAll('.hour-tick')
+				.data(d3.range(0, 12)).enter()
+				.append('line')
+				.attr('class', 'hour-tick')
+				.attr('x1', 0)
+				.attr('x2', 0)
+				.attr('y1', 39)
+				.attr('y2', 37)
+				.attr('transform', function (d) {
+					return 'rotate(' + scaleHours(d) * 180 / pi + ')';
+				})
+				.attr("stroke", "black")
+				.attr("stroke-width", 1);
+
+			renderClock(minutes_2_object(minutes));
+
+			clockGroup.append("g")
+				.attr("transform", "translate(0, " + 60 + ")")
+				.append("text")
+				.attr("class", "clock-reading")
+				.attr("text-anchor", "middle")
+				.text(format_minutes(minutes));
+
+		}
+
+
+		// create convenient accessor functions
+		function st_name(d) {
+			return d[0];
+		}
+
+		function st_entry(d) {
+			return d[1];
+		}
+
+		function draw(oneTick) {
+			var circles = chart.selectAll("circle.entry");
+			var circlesUpdate = circles.data(oneTick, st_name);
+
+			circlesUpdate.transition()
+				.duration(ANIMATION_INTERVAL)
+				.attr("r", function (d) { return r(st_entry(d)); })
+				.attr("cx", function (d) { return x(stations[st_name(d)]["LNG"]); })
+				.attr("cy", function (d) {
+					return y(stations[st_name(d)]["LAT"]);
+				})
+				.style("fill", function (d) {
+					return LINE_COLOR[stations[st_name(d)]["LINE_NO"]];
+				})
+				.style("fill-opacity", function (d) { return opacity_scaler(st_entry(d)); });
+
+			circlesUpdate.enter().append("circle")
+				.attr("class", "entry")
+				.attr("id", st_name)
+				.attr("cy", function (d) {
+					if (stations[st_name(d)]["LAT"] == undefined) { console.log(d["name"]); }
+					return y(parseFloat(stations[st_name(d)]["LAT"]));
+				})
+				.attr("cx", function (d) { return x(parseFloat(stations[st_name(d)]["LNG"])); })
+				.attr("r", 0)
+				.style("fill", function (d) {
+					return LINE_COLOR[stations[st_name(d)]["LINE_NO"]];
+				})
+				.style("fill-opacity", function (d) { return opacity_scaler(st_entry(d)); })
+				.transition()
+				.duration(ANIMATION_INTERVAL)
+				.attr("r", function (d) { return r(st_entry(d)); });
+
+			circlesUpdate.exit().remove();
+			// .transition()
+			// .duration(ANIMATION_INTERVAL)
+			// .attr("r", 0)
+			// .style("fill-opacity", 0);
+
+			// console.log(oneTick);
+
+			top_stations = oneTick.sort(function compare(a, b) { return st_entry(b) - st_entry(a); }).slice(0, 10);
+
+			// console.log(top_stations);
+
+			var bars = barArea.selectAll("g.bar")
+				.data(top_stations, st_name);
+
+			top_station_names = top_stations.map(function (d) { return st_name(d); });
+
+			rankingY.domain(top_station_names);
+			// console.log(top[0]);
+			rankingX.domain([0, st_entry(top_stations[0])]);
+
+			var barEnter = bars.enter().insert("g", ".axis")
+				.attr("class", "bar")
+				.attr("transform", function (d, i) { return "translate(0," + i * barHeight + ")"; });
+
+			barEnter.append("rect")
+				.attr("width", function (d) { return rankingX(st_entry(d)); })
+				.attr("height", rankingY.rangeBand())
+				.style("fill", function (d) {
+					return LINE_COLOR[stations[st_name(d)]["LINE_NO"]];
+				});
+			// .style("fill-opacity", function(d) { return opacity_scaler(st_entry(d)); });
+
+			barEnter.append("text")
+				.attr("class", "label")
+				.attr("x", -3)
+				.attr("y", rankingY.rangeBand() / 2)
+				.attr("dy", ".35em")
+				.attr("text-anchor", "end")
+				.text(st_name);
+
+			barEnter.append("text")
+				.attr("class", "entry-value")
+				.attr("x", function (d) { return rankingX(st_entry(d)) - 3; })
+				.attr("y", rankingY.rangeBand() / 2)
+				.attr("dy", ".35em")
+				.attr("text-anchor", "end")
+				.text(st_entry);
+
+			var barUpdate = d3.transition(bars)
+				.attr("transform", function (d, i) { return "translate(0, " + i * barHeight + ")"; });
+
+			barUpdate.select("rect")
+				.attr("width", function (d) { return rankingX(st_entry(d)); });
+			// .style("fill-opacity", function(d) { return opacity_scaler(st_entry(d)); });
+
+			barUpdate.select(".entry-value")
+				.attr("x", function (d) { return rankingX(st_entry(d)) - 3; })
+				.text(st_entry);
+
+			// suppose the whole place is 300*300
+
+			var barExit = d3.transition(bars.exit())
+				.attr("transform", function (d) { return "translate(0," + 400 + ")"; })
+				.style("fill-opacity", 0)
+				.remove();
+
+			barExit.select("rect")
+				.attr("width", function (d) { return rankingX(st_entry(d)); });
+
+			barExit.select(".entry-value")
+				.attr("x", function (d) { return rankingX(st_entry(d)) - 3; })
+				.text(st_entry);
+
+
+			// .tween("text", tweenText(minutes));
+		}
+
+		function renderClock(data) {
+			var hourArc, minuteArc;
+
+			// clockGroup.selectAll(".clockhand").remove();
+
+			minuteArc = d3.svg.arc()
+				.innerRadius(0)
+				.outerRadius(35)
+				.startAngle(function (d) {
+					return scaleMins(d.numeric);
+				})
+				.endAngle(function (d) {
+					return scaleMins(d.numeric);
+				});
+
+			hourArc = d3.svg.arc()
+				.innerRadius(0)
+				.outerRadius(20)
+				.startAngle(function (d) {
+					return scaleHours(d.numeric % 12);
+				})
+				.endAngle(function (d) {
+					return scaleHours(d.numeric % 12);
+				});
+
+			var clockUpdate = clockGroup.selectAll(".clockhand")
+				.data(data, function (d) { return d["unit"]; });
+
+			clockUpdate.enter()
+				.append("svg:path")
+				.attr("d", function (d) {
+					if (d.unit === "seconds") {
+						// return secondArc(d);
+					} else if (d.unit === "minutes") {
+						return minuteArc(d);
+					} else if (d.unit === "hours") {
+						return hourArc(d);
+					}
+				})
+				.attr("class", "clockhand")
+				.attr("stroke", "black")
+				.attr("stroke-width", function (d) {
+					if (d.unit === "seconds") {
+						// return 2;
+					} else if (d.unit === "minutes") {
+						return 2;
+					} else if (d.unit === "hours") {
+						return 3;
+					}
+				})
+				.attr("fill", "none");
+
+			clockUpdate.transition()
+				.duration(ANIMATION_INTERVAL)
+				.attr("d", function (d) {
+					if (d.unit === "seconds") {
+						// return secondArc(d);
+					} else if (d.unit === "minutes") {
+						return minuteArc(d);
+					} else if (d.unit === "hours") {
+						return hourArc(d);
+					}
+				});
+
+			//  	d3.select("#clock")
+			// .transition()
+			// .duration(1000)
+			// .text(format_minutes(minutes-1));
+
+			// clockGroup.select("text.clock-reading")
+			// 	.transition()
+			// 	.duration(ANIMATION_INTERVAL)
+			// 	.text(format_minutes(minutes));
+
+		}
+
+		function update() {
+			// var oneTick = entries.shift();
+			var oneTick = entries.slice(minutes, minutes + 1)[0];
+			// console.log(oneTick);
+			if (minutes < END_MINUTES / 5) {
+				renderClock(minutes_2_object(minutes));
+				clockGroup.select("text.clock-reading").transition()
+					.duration(ANIMATION_INTERVAL)
+					.text(format_minutes(minutes - 1));
+				draw(oneTick);
+				minutes++;
+			}
+			else {
+				minutes = INTERACTION_START_MINUTES;
+				renderClock(minutes_2_object(minutes));
+				draw(entries.slice(minutes, minutes + 1)[0]);
+				stopAnimation();
+				enableInteraction();
+			}
+		}
+
+		function stopAnimation() {
+			clearInterval(intervalId);
+			// d3.select("#clock")
+			// 	.attr("display", "none");
+		}
+
+		function enableInteraction() {
+			var width = 400;
+			var height = 100;
+
+			var startingValue = minutes;
+
+			var timeScale = d3.scale.linear()
+				.domain([60, 276])
+				.range([0, width])
+				.clamp(true);
+
+			function generateArray(start, end) {
+				var array = [];
+				for (var i = start; i < end + 1; i = i + 24) {
+					array.push(i);
+				}
+				return array;
+			}
+
+			var brush = d3.svg.brush()
+				.x(timeScale)
+				.extent([startingValue, startingValue])
+				.on("brush", brushed);
+
+			var slider_container = chart.append("g")
+				.attr("width", width)
+				.attr("height", height)
+				.attr("transform", "translate(530, " + -10 + ")");
+
+			slider_container.append("g")
+				.attr("class", "slider_axis")
+				.attr("transform", "translate(0," + height / 2 + ")")
+				.call(d3.svg.axis()
+					.scale(timeScale)
+					.orient("bottom")
+					.tickFormat(function (d) {
+						return format_minutes(d);
+					})
+					.tickSize(0)
+					.tickPadding(12)
+					.tickValues(generateArray(timeScale.domain()[0], timeScale.domain()[1])))
+				.select(".domain")
+				.select(function () {
+					// console.log(this);
+					return this.parentNode.appendChild(this.cloneNode(true));
+				})
+				.attr("class", "halo");
+
+			var slider = slider_container.append("g")
+				.attr("class", "slider")
+				.call(brush);
+
+			slider.selectAll(".extent,.resize")
+				.remove();
+
+			slider.select(".background")
+				.attr("height", height);
+
+			var handle = slider.append("g")
+				.attr("class", "handle")
+
+			handle.append("path")
+				.attr("transform", "translate(0," + height / 2 + ")")
+				.attr("d", "M 0 -10 V 10")
+
+			handle.append('text')
+				.text(startingValue)
+				.attr("transform", "translate(" + (-22) + " ," + (height / 2 - 18) + ")");
+
+			slider
+				.call(brush.event)
+
+			function brushed() {
+				var value = brush.extent()[0];
+
+				if (d3.event.sourceEvent) { // not a programmatic event
+					// value = Math.floor(timeScale.invert(d3.mouse(this)[0])/5);
+					scaleValue = timeScale.invert(d3.mouse(this)[0]);
+					value = Math.floor(scaleValue);
+					brush.extent([value, value]);
+				}
+
+				handle.attr("transform", "translate(" + timeScale(value) + ",0)");
+				handle.select('text').text(format_minutes(value));
+				draw(entries.slice(value, value + 1)[0]);
+				renderClock(minutes_2_object(value));
+				// console.log(clockGroup.select("text.clock-reading").text());
+				clockGroup.select("text.clock-reading").text(format_minutes(value));
+				// console.log(clockGroup.select("text.clock-reading").text());
+			}
+
+		}
+
+		// function tweenText(newValue){
+		// 	return function(){
+		// 		var currentValue = hour2min(this.textContent);
+		// 		var i = d3.interpolate(currentValue, newValue);
+
+		// 		return function(t){
+		// 			this.textContent = format_minutes(i(t));
+		// 		}
+		// 	}
+		// }
+
+		function hour2min(s) {
+			arr = s.split(":");
+			hour = parseInt(arr[0]);
+			minute = parseInt(arr[1]);
+			return Math.floor((60 * hour + minute) / 5);
+		}
+
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?1dcc5b7e73f12a12bc37c8cd82272b38";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-66946541-1', 'auto');
+		ga('require', 'autotrack');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+
+</html>

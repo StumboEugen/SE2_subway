@@ -1,0 +1,186 @@
+/*
+此文件用于解释 json 结构中各个键值对的意义
+注意：json文件中不允许使用注释
+*/
+
+{
+// 键名：line
+// 值类型：list
+// 描述：储存地铁中的线路，一号线、二号线等，按照线路编号顺序储存
+    "line": [
+    // 键名：list[index]
+    // 值类型：dict(json object)
+    // 描述：表示地铁网中的一条线路，如地铁一号线
+        {
+        // 键名：lineName
+        // 值类型：string
+        // 描述：名称，如地铁一号线对应Line_1
+            "lineName": "Line_1",
+        // 键名：lineID
+        // 值类型：int
+        // 描述：编号，如地铁一号线对应1，与其在list中的索引无关
+            "lineID": 1,
+        // 键名：lineStation
+        // 值类型：list of string
+        // 描述：各个站名
+            "lineStation": [
+                "富锦路",
+                "友谊西路",
+                "宝安公路",
+                "共富新村",
+                "呼兰路",
+                "通河新村",
+                "共康路",
+                "彭浦新村",
+                "汶水路",
+                "上海马戏城",
+                "延长路",
+                "中山北路",
+                "上海火车站",
+                "汉中路",
+                "新闸路",
+                "人民广场",
+                "黄陂南路",
+                "陕西南路",
+                "常熟路",
+                "衡山路",
+                "徐家汇",
+                "上海体育馆",
+                "漕宝路",
+                "上海南站",
+                "锦江乐园",
+                "莲花路",
+                "外环路",
+                "莘庄"
+            ],
+        // 键名：lineStationID
+        // 值类型：list of int
+        // 描述：各个站对应的编号，此编号可以用于在 station 的列表中索引站的信息
+            "lineStationID": [
+                265,
+                280,
+                40,
+                45,
+                274,
+                70,
+                1,
+                208,
+                131,
+                115,
+                125,
+                172,
+                173,
+                189,
+                193,
+                175,
+                121,
+                285,
+                76,
+                120,
+                116,
+                122,
+                185,
+                119,
+                129,
+                270,
+                207,
+                43
+            ],
+        // 键名：lineColor
+        // 值类型：string
+        // 描述：颜色，16进制的RGB颜色
+            "lineColor": "#e91b39"
+        }
+    ],
+// 键名：station
+// 值类型：list
+// 描述：储存地铁中的乘车站，并进行了编号，按照编号顺序储存
+    "station": [
+    // 键名：list[index]
+    // 值类型：dict(json object)
+    // 描述：表示地铁中的乘车站
+        {
+        // 键名：stationName
+        // 值类型：string
+        // 描述：地铁站的站名
+            "stationName": "马陆",
+        // 键名：stationID
+        // 值类型：int
+        // 描述：地铁站的编号，可用于从list中索引本站
+            "stationID": 0,
+        // 键名：stationPos
+        // 值类型：dict(json object)
+        // 描述：地铁站在路线图上的位置
+            "stationPos": {
+            // 键名：posX
+            // 值类型：string of double
+            // 描述：地铁站在路线图上X坐标
+                "posX": "170.81584615385916",
+            // 键名：posY
+            // 值类型：string of double
+            // 描述：地铁站在路线图上Y坐标
+                "posY": "168.1350697674417"
+            },
+        // 键名：transferLine
+        // 值类型：list of int
+        // 描述：经过该站的地铁线路编号，如11为地铁十一号线
+            "transferLine": [
+                11
+            ],
+        // 键名：nextStationID
+        // 值类型：list of int
+        // 描述：与该站相接的其他站的编号。如，8 表示 该站与本列表的第8个站相连
+            "nextStationID": [
+                8,
+                214
+            ]
+        }
+    ],
+// 键名：route
+// 值类型：list
+// 描述：储存地铁中的站与站之间的连接关系，称为线路route，区别于地铁线路。
+    "route": [
+    // 键名：list[index]
+    // 值类型：dict(json object)
+    // 描述：表示地铁中站点连接
+        {
+        // 键名：routeName
+        // 值类型：string
+        // 描述：该线路名称，格式为 stationName1-stationName2
+            "routeName": "富锦路-友谊西路",
+        // 键名：routeEntry
+        // 值类型：list of string
+        // 描述：线路相连的两站的名称
+            "routeEntry": [
+                "富锦路",
+                "友谊西路"
+            ],
+        // 键名：routeEntryID
+        // 值类型：list of string
+        // 描述：线路相连的两站的编号
+            "routeEntryID": [
+                265,
+                280
+            ],
+        // 键名：routeColor
+        // 值类型：string
+        // 描述：线路颜色，16进制的RGB颜色
+            "routeColor": "#e91b39",
+        // 键名：routeStart & routeEnd
+        // 值类型：dict(json object)
+        // 描述：线的起始与终止坐标
+            "routeStart": {
+                "posX": "386.7552307692315",
+                "posY": "46.386418604654985"
+            },
+            "routeEnd": {
+                "posX": "391.5213076923008",
+                "posY": "64.78827906977047"
+            },
+        // 键名：routeLineID
+        // 值类型：int
+        // 描述：该线路所属的地铁线路编号，如 1 表示 该线路属于地铁一号线
+            "routeLineID": 1
+        }
+    ]
+}
